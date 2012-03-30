@@ -25,6 +25,7 @@
 (setq show-paren-delay 0)
 (show-paren-mode t)
 
+;; --- フォント設定 ---
 (when (eq system-type 'windows-nt)
   (set-face-attribute 'default nil
 		      :family #("ＭＳ ゴシック" 0 7 (charset cp932-2-byte))

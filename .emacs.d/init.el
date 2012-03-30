@@ -19,15 +19,8 @@
 (init-loader-load "~/.emacs.d/conf")	; 設定ファイルのディレクトリを設定
 
 
-;; (defun my-ac-howm-mode ()
-;; (when (string-equal (file-name-extension buffer-file-name) "howm") ;拡張子が howm なら。 when でエラーになるなら (require 'cl) を上の方に書く
-;; (auto-complete-mode t)
-;; ;; 必要なら以下のように補完候補を指定する
-;; ;; (setq ac-sources '(ac-source-words-in-same-mode-buffers
-;; ;; ac-source-dictionary))
-;; ))
+;; その他雑多な設定
 
-;; (add-hook 'find-file-hook 'my-ac-howm-mode)
-
+;; HOWM ファイル上で auto-complete モードを有効にする
 (add-to-list 'ac-modes 'howm-mode)
 (add-to-list 'ac-modes 'text-mode)
