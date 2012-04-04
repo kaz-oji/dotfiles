@@ -1,3 +1,4 @@
 ;; color-theme
 (when (require 'color-theme nil t)
-  (color-theme-initialize))
+  (color-theme-initialize)
+  (color-theme-clarity))
