@@ -1,6 +1,6 @@
 
-;;; --- ƒ[ƒhƒpƒXİ’è--- 
-;; load-path ‚ğ’Ç‰Á‚·‚éŠÖ”
+;;; --- ãƒ­ãƒ¼ãƒ‰ãƒ‘ã‚¹è¨­å®š--- 
+;; load-path ã‚’è¿½åŠ ã™ã‚‹é–¢æ•°
 (defun add-to-load-path (&rest paths)
   (let (path)
 	(dolist (path paths paths)
@@ -11,16 +11,20 @@
 			(normal-top-level-add-subdirs-to-load-path))))))
 
 (add-to-load-path "elisp" "elpa")
-;; ˆø”‚ÌƒfƒBƒŒƒNƒgƒŠ‚Æ‚»‚ÌƒTƒuƒfƒBƒŒƒNƒgƒŠ‚ğ load-path ‚É’Ç‰Á
+;; å¼•æ•°ã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã¨ãã®ã‚µãƒ–ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’ load-path ã«è¿½åŠ 
 
 ;;; --- init-loader.el ---
 ;; http://coderepos.org/share/browser/lang/elisp/init-loader/init-loader.el
 (require 'init-loader)
-(init-loader-load "~/.emacs.d/conf")	; İ’èƒtƒ@ƒCƒ‹‚ÌƒfƒBƒŒƒNƒgƒŠ‚ğİ’è
+(init-loader-load "~/.emacs.d/conf")	; è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’è¨­å®š
 
 
-;; ‚»‚Ì‘¼G‘½‚Èİ’è
+;; ãã®ä»–é›‘å¤šãªè¨­å®š
 
-;; HOWM ƒtƒ@ƒCƒ‹ã‚Å auto-complete ƒ‚[ƒh‚ğ—LŒø‚É‚·‚é
+;; HOWM ãƒ•ã‚¡ã‚¤ãƒ«ä¸Šã§ auto-complete ãƒ¢ãƒ¼ãƒ‰ã‚’æœ‰åŠ¹ã«ã™ã‚‹
 (add-to-list 'ac-modes 'howm-mode)
 (add-to-list 'ac-modes 'text-mode)
+
+;; ç¾åœ¨è¡Œã«ä¸‹ç·šã‚’è¡¨ç¤º
+(setq hl-line-face 'underline)
+(global-hl-line-mode t)
