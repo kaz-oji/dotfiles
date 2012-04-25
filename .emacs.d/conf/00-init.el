@@ -1,32 +1,35 @@
-;;; --- ƒoƒbƒNƒAƒbƒv‚ÆƒI[ƒgƒZ[ƒu ---
-;; ƒoƒbƒNƒAƒbƒvƒtƒ@ƒCƒ‹‚ÆƒI[ƒgƒZ[ƒuƒtƒ@ƒCƒ‹‚ğ ~/.emacs.d/backups/ ‚ÖW‚ß‚é
+;;; --- ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ã¨ã‚ªãƒ¼ãƒˆã‚»ãƒ¼ãƒ– ---
+;; ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ãƒ•ã‚¡ã‚¤ãƒ«ã¨ã‚ªãƒ¼ãƒˆã‚»ãƒ¼ãƒ–ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ ~/.emacs.d/backups/ ã¸é›†ã‚ã‚‹
 (add-to-list 'backup-directory-alist
 			 (cons "." "~/.emacs.d/backups/"))
 (setq auto-save-file-name-transforms
       `((".*" ,(expand-file-name "~/.emacs.d/backups/") t)))
 
 
-;; ƒ^ƒu•İ’è
+;; ã‚¿ãƒ–å¹…è¨­å®š
 (setq-default tab-width 4)
 
-;; --- ƒ‚[ƒhƒ‰ƒCƒ“•\¦İ’è ---
-;; s”Ô†/ƒJƒ‰ƒ€”Ô†
+;; --- ãƒ„ãƒ¼ãƒ«ãƒãƒ¼è¡¨ç¤º ---
+(tool-bar-mode nil)
+
+;; --- ãƒ¢ãƒ¼ãƒ‰ãƒ©ã‚¤ãƒ³è¡¨ç¤ºè¨­å®š ---
+;; è¡Œç•ªå·/ã‚«ãƒ©ãƒ ç•ªå·
 (column-number-mode t)
-;; ƒtƒ@ƒCƒ‹ƒTƒCƒY
+;; ãƒ•ã‚¡ã‚¤ãƒ«ã‚µã‚¤ã‚º
 (size-indication-mode t)
 
-;; --- ƒ^ƒCƒgƒ‹ƒo[•\¦İ’è ---
+;; --- ã‚¿ã‚¤ãƒˆãƒ«ãƒãƒ¼è¡¨ç¤ºè¨­å®š ---
 (setq frame-title-format "%b - %f")
 
-;; s”Ô†•\¦
+;; è¡Œç•ªå·è¡¨ç¤º
 (global-linum-mode t)
 
-;; --- Š‡ŒÊİ’è ---
+;; --- æ‹¬å¼§è¨­å®š ---
 (setq show-paren-delay 0)
 (show-paren-mode t)
 
-;; --- ƒtƒHƒ“ƒgİ’è ---
+;; --- ãƒ•ã‚©ãƒ³ãƒˆè¨­å®š ---
 (when (eq system-type 'windows-nt)
   (set-face-attribute 'default nil
-		      :family #("‚l‚r ƒSƒVƒbƒN" 0 7 (charset cp932-2-byte))
+		      :family #("ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯" 0 7 (charset cp932-2-byte))
 		      :height 100))
