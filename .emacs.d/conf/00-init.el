@@ -31,5 +31,11 @@
 ;; --- フォント設定 ---
 (when (eq system-type 'windows-nt)
   (set-face-attribute 'default nil
-		      :family #("ＭＳ ゴシック" 0 7 (charset cp932-2-byte))
-		      :height 100))
+					  :family #("ＭＳ ゴシック" 0 7 (charset cp932-2-byte))
+					  :height 100))
+
+(when (eq system-type 'gnu/linux)
+  (set-face-attribute 'default nil
+					  :family "IPAゴシック"
+					  :height 120))
+
