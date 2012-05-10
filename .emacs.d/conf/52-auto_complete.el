@@ -1,7 +1,8 @@
-;; auto-complete ‚Ìİ’è
+;; auto-complete ã®è¨­å®š
 (when (require 'auto-complete-config nil t)
   (add-to-list 'ac-dictionary-directories "~/.emacs.d/elpa/auto-complete-1.4/dict")
-  (setq ac-auto-show-menu nil)			; •âŠ®ƒƒjƒ…[‚ğ•\¦‚µ‚È‚¢‚æ‚¤‚É‚·‚é
+  (setq ac-auto-show-menu nil)			; è£œå®Œãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚’è¡¨ç¤ºã—ãªã„ã‚ˆã†ã«ã™ã‚‹
+  (setq ac-delay 1)
   (global-set-key (kbd "M-i") 'auto-complete) ;
   (ac-config-default))
 
