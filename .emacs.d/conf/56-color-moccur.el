@@ -1,7 +1,7 @@
 ;; color-moccur
 (when (require 'color-moccur nil t)
   ;; M-o に occur-by-moccur を割り当て
-  (define-key global-map (kbd "M-o") 'occur-by-moccur)
+  ;; (define-key global-map (kbd "M-o") 'occur-by-moccur)
   ;; スペース区切りで AND 検索
   (setq moccur-split-word t)
   ;; ディレクトリ検索で除外するファイル
@@ -12,4 +12,4 @@
 			 (require 'migemo nil t))
 	(setq moccur-use-migemo t))
   (when (require 'moccur-edit nil t))
-	
+)
