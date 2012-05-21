@@ -10,5 +10,6 @@
   ;; Migemo を利用できる環境の場合は Migemo を使う
   (when (and (executable-find "cmigemo")
 			 (require 'migemo nil t))
-	(setq moccur-use-migemo t)))
+	(setq moccur-use-migemo t))
+  (when (require 'moccur-edit nil t))
 	
