@@ -1,0 +1,58 @@
+" フォント設定
+set guifont=MS_Gothic:h9:cSHIFTJIS
+
+" 行数表示
+set number
+
+" ウィンドウサイズ設定
+set lines=53
+set columns=150
+
+winpos 20 30
+
+" ツールバー非表示
+set guioptions-=T
+
+" 行の文字数最大値(0で無効化)
+set textwidth=0
+
+" 特殊文字表示
+set list
+set listchars=tab:^\ 
+
+" カラースキーマ設定
+colorscheme desert256
+
+""""""""""""""""""""""""""""""
+"挿入モード時、ステータスラインの色を変更
+""""""""""""""""""""""""""""""
+let g:hi_insert = 'highlight StatusLine guifg=yellow guibg=darkblue gui=none ctermfg=blue ctermbg=yellow cterm=none'
+
+if has('syntax')
+  augroup InsertHook
+    autocmd!
+    autocmd InsertEnter * call s:StatusLine('Enter')
+    autocmd InsertLeave * call s:StatusLine('Leave')
+  augroup END
+endif
+
+let s:slhlcmd = ''
+function! s:StatusLine(mode)
+  if a:mode == 'Enter'
+    silent! let s:slhlcmd = 'highlight ' . s:GetHighlight('StatusLine')
+    silent exec g:hi_insert
+  else
+    highlight clear StatusLine
+    silent exec s:slhlcmd
+  endif
+endfunction
+
+function! s:GetHighlight(hi)
+  redir => hl
+  exec 'highlight '.a:hi
+  redir END
+  let hl = substitute(hl, '[\r\n]', '', 'g')
+  let hl = substitute(hl, 'xxx', '', '')
+  return hl
+endfunction
+
