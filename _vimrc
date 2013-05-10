@@ -38,9 +38,9 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimfiler'
+NeoBundle 'Shougo/unite-outline'
 NeoBundle 'fuenor/qfixhowm'
 NeoBundle 'taglist.vim'
-NeoBundle 'h1mesuke/unite-outline'
 
 filetype plugin indent on
 
