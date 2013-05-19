@@ -53,6 +53,20 @@ nnoremap <SPACE> <PageDown>
 nnoremap <S-SPACE> <PageUp>
 nnoremap ZZ <Nop>
 
+" for Unite
+nnoremap [unite] <Nop>
+nmap <Leader>u [unite]
+"nmap <M-u> [unite]
+nnoremap <silent> [unite]b :<C-u>Unite<Space>buffer<CR>
+nnoremap <silent> [unite]fm :<C-u>Unite<Space>file_mru<CR>
+nnoremap <silent> [unite]f :<C-u>Unite<Space>file<CR>
+
+" for TagList
+nnoremap [tlist] <Nop>
+nmap <Leader>t [tlist]
+nnoremap <silent> [tlist]o :<C-u>TlistOpen<CR>
+nnoremap <silent> [tlist]c :<C-u>TlistClose<CR>
+
 "------------------------------------------------------------
 " howm setting
 "------------------------------------------------------------
