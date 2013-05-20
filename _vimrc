@@ -58,7 +58,7 @@ nnoremap [unite] <Nop>
 nmap <Leader>u [unite]
 "nmap <M-u> [unite]
 nnoremap <silent> [unite]b :<C-u>Unite<Space>buffer<CR>
-nnoremap <silent> [unite]fm :<C-u>Unite<Space>file_mru<CR>
+nnoremap <silent> [unite]m :<C-u>Unite<Space>file_mru<CR>
 nnoremap <silent> [unite]f :<C-u>Unite<Space>file<CR>
 
 " for TagList
