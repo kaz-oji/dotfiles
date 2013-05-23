@@ -41,6 +41,8 @@ NeoBundle 'Shougo/vimfiler'
 NeoBundle 'Shougo/unite-outline'
 NeoBundle 'fuenor/qfixhowm'
 NeoBundle 'taglist.vim'
+NeoBundle 'SrcExpl'
+NeoBundle 'Trinity'
 
 filetype plugin indent on
 
