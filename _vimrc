@@ -41,12 +41,16 @@ NeoBundle 'Shougo/vimfiler'
 NeoBundle 'Shougo/unite-outline'
 NeoBundle 'fuenor/qfixhowm'
 NeoBundle 'taglist.vim'
-NeoBundle 'SrcExpl'
-NeoBundle 'Trinity'
+NeoBundle 'scrooloose/nerdtree'
 
 filetype plugin indent on
 
 NeoBundleCheck
+
+"------------------------------------------------------------
+" NERD Tree setting
+"------------------------------------------------------------
+let NERDTreeWinPos='right'
 
 "------------------------------------------------------------
 " key mapping
@@ -68,6 +72,7 @@ nnoremap [tlist] <Nop>
 nmap <Leader>t [tlist]
 nnoremap <silent> [tlist]o :<C-u>TlistOpen<CR>
 nnoremap <silent> [tlist]c :<C-u>TlistClose<CR>
+
 
 "------------------------------------------------------------
 " howm setting
