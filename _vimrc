@@ -11,13 +11,13 @@ else
 endif
 
 "------------------------------------------------------------
-" ƒoƒbƒNƒAƒbƒvİ’è
+" ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—è¨­å®š
 "------------------------------------------------------------
 set backupdir=$DOTVIM/backups
 set directory=$DOTVIM/swp
 
 "------------------------------------------------------------
-" Tab İ’è
+" Tab è¨­å®š
 "------------------------------------------------------------
 set tabstop=4
 set shiftwidth=4
@@ -77,7 +77,7 @@ nnoremap <silent> [tlist]c :<C-u>TlistClose<CR>
 "------------------------------------------------------------
 " howm setting
 "------------------------------------------------------------
-let howm_dir='~/howm'
+let howm_dir='â€¾/howm'
 let howm_filename='%Y/%m/%Y-%m-%d-%H%M%S.txt'
 let howm_fileencoding='cp932'
 let howm_fileformat='dos'
@@ -86,18 +86,18 @@ let QFixHowm_ST=-9
 let mygrepprg='agrep.vim'
 
 let QFixHowm_Menufile='0000-00-00-000000.txt'
-let QFixMRU_RegisterFile = '\.\(howm\|txt\|mkd\|wiki\)$'
+let QFixMRU_RegisterFile = 'Â¥.Â¥(howmÂ¥|txtÂ¥|mkdÂ¥|wikiÂ¥)$'
 let QFixHowm_MenuPreviewEnable=0
 
 "------------------------------------------------------------
-" “Áê•¶š•\¦
+" ç‰¹æ®Šæ–‡å­—è¡¨ç¤º
 "------------------------------------------------------------
 set list
-" <TAB> ‚ğ•\¦
+" <TAB> ã‚’è¡¨ç¤º
 set listchars=tab:^\ 
 
 "------------------------------------------------------------
-"‘}“üƒ‚[ƒhAƒXƒe[ƒ^ƒXƒ‰ƒCƒ“‚ÌF‚ğ•ÏX
+"æŒ¿å…¥ãƒ¢ãƒ¼ãƒ‰æ™‚ã€ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ãƒ©ã‚¤ãƒ³ã®è‰²ã‚’å¤‰æ›´
 "------------------------------------------------------------
 let g:hi_insert = 'highlight StatusLine guifg=yellow guibg=darkblue gui=none ctermfg=blue ctermbg=yellow cterm=none'
 
@@ -124,7 +124,7 @@ function! s:GetHighlight(hi)
   redir => hl
   exec 'highlight '.a:hi
   redir END
-  let hl = substitute(hl, '[\r\n]', '', 'g')
+  let hl = substitute(hl, '[Â¥rÂ¥n]', '', 'g')
   let hl = substitute(hl, 'xxx', '', '')
   return hl
 endfunction
