@@ -77,7 +77,7 @@ nnoremap <silent> [tlist]c :<C-u>TlistClose<CR>
 "------------------------------------------------------------
 " howm setting
 "------------------------------------------------------------
-let howm_dir='‾/howm'
+let howm_dir='~/howm'
 let howm_filename='%Y/%m/%Y-%m-%d-%H%M%S.txt'
 let howm_fileencoding='cp932'
 let howm_fileformat='dos'
