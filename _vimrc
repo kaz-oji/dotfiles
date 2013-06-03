@@ -86,7 +86,7 @@ let QFixHowm_ST=-9
 let mygrepprg='agrep.vim'
 
 let QFixHowm_Menufile='0000-00-00-000000.txt'
-let QFixMRU_RegisterFile = '¥.¥(howm¥|txt¥|mkd¥|wiki¥)$'
+let QFixMRU_RegisterFile = '\.\(howm\|txt\|mkd\|wiki\)$'
 let QFixHowm_MenuPreviewEnable=0
 
 "------------------------------------------------------------
@@ -124,7 +124,7 @@ function! s:GetHighlight(hi)
   redir => hl
   exec 'highlight '.a:hi
   redir END
-  let hl = substitute(hl, '[¥r¥n]', '', 'g')
+  let hl = substitute(hl, '[\r\n]', '', 'g')
   let hl = substitute(hl, 'xxx', '', '')
   return hl
 endfunction
