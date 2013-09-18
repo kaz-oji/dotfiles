@@ -42,6 +42,7 @@ NeoBundle 'Shougo/unite-outline'
 NeoBundle 'fuenor/qfixhowm'
 NeoBundle 'taglist.vim'
 NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'w0ng/vim-hybrid'
 
 filetype plugin indent on
 
