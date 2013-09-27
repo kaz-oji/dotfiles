@@ -135,3 +135,13 @@ function! s:GetHighlight(hi)
   return hl
 endfunction
 
+"------------------------------------------------------------
+"全角スペースを　で表示
+"------------------------------------------------------------
+scriptencoding utf-8
+augroup highlightDoubleByteSpace
+  autocmd!
+  autocmd VimEnter,Colorscheme * highlight DoubleByteSpace term=underline ctermbg=LightMagenta guibg=LightMagenta
+  autocmd VimEnter,WinEnter,BufRead * match DoubleByteSpace /　/
+augroup END
+
