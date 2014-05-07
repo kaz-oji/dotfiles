@@ -19,6 +19,7 @@ endif
 "------------------------------------------------------------
 set backupdir=$DOTVIM/backups
 set directory=$DOTVIM/swp
+set undodir=$DOTVIM/undo
 
 "------------------------------------------------------------
 " Tab 設定
