@@ -46,8 +46,9 @@ NeoBundle 'Shougo/vimfiler'
 NeoBundle 'Shougo/unite-outline'
 NeoBundle 'fuenor/qfixhowm'
 NeoBundle 'taglist.vim'
-NeoBundle 'scrooloose/nerdtree'
+"NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'w0ng/vim-hybrid'
+NeoBundle 'rking/ag.vim'
 
 filetype plugin indent on
 
@@ -57,6 +58,24 @@ NeoBundleCheck
 " NERD Tree setting
 "------------------------------------------------------------
 let NERDTreeWinPos='right'
+
+"------------------------------------------------------------
+" VimFiler setting
+"------------------------------------------------------------
+let g:vimfiler_as_default_explorer = 1
+
+"------------------------------------------------------------
+" Unite setting
+"------------------------------------------------------------
+" grep setting
+if executable('ag')
+	" Use ag in unite grep source.
+	let g:unite_source_grep_command = 'ag'
+	let g:unite_source_grep_default_opts =
+				\ '--line-numbers --nocolor --nogroup --hidden --ignore ' .
+				\  '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
+	let g:unite_source_grep_recursive_opt = ''
+endif
 
 "------------------------------------------------------------
 " key mapping
@@ -72,6 +91,9 @@ nmap <Leader>u [unite]
 nnoremap <silent> [unite]b :<C-u>Unite<Space>buffer<CR>
 nnoremap <silent> [unite]m :<C-u>Unite<Space>file_mru<CR>
 nnoremap <silent> [unite]f :<C-u>Unite<Space>file<CR>
+nnoremap <silent> [unite]o :<C-u>Unite<Space>-vertical<Space>-winwidth=40<Space>outline<CR>
+nnoremap <silent> [unite]g :<C-u>Unite grep -buffer-name=search-buffer<CR>
+nnoremap <silent> [unite]r :<C-u>UniteResume search-buffer<CR>
 
 " for TagList
 nnoremap [tlist] <Nop>
@@ -94,6 +116,7 @@ let mygrepprg='agrep.vim'
 let QFixHowm_Menufile='0000-00-00-000000.txt'
 let QFixMRU_RegisterFile = '\.\(howm\|txt\|mkd\|wiki\)$'
 let QFixHowm_MenuPreviewEnable=0
+
 
 "------------------------------------------------------------
 " 特殊文字表示
