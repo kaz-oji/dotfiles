@@ -95,6 +95,11 @@ nnoremap <silent> [unite]o :<C-u>Unite<Space>-vertical<Space>-winwidth=40<Space>
 nnoremap <silent> [unite]g :<C-u>Unite grep -buffer-name=search-buffer<CR>
 nnoremap <silent> [unite]r :<C-u>UniteResume search-buffer<CR>
 
+" for VimFiler
+nnoremap [vimfiler] <Nop>
+nmap <Leader>f [vimfiler]
+nnoremap <silent> [vimfiler]e :<C-u>VimFilerExplorer<Space>-winwidth=70<Space>.<CR>
+
 " for TagList
 nnoremap [tlist] <Nop>
 nmap <Leader>t [tlist]
