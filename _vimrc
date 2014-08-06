@@ -49,14 +49,18 @@ NeoBundle 'fuenor/qfixhowm'
 NeoBundle 'taglist.vim'
 "NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'w0ng/vim-hybrid'
+NeoBundle 'jeffreyiacono/vim-colors-wombat'
 NeoBundle 'rking/ag.vim'
+NeoBundle 'itchyny/lightline.vim'
 
+if has('mac') || has('unix')
 NeoBundle 'Shougo/vimproc', {
       \ 'build' : {
       \     'mac' : 'make -f make_mac.mak',
       \     'unix' : 'make -f make_unix.mak',
       \    },
       \ }
+endif
 
 filetype plugin indent on
 
@@ -142,6 +146,9 @@ set listchars=tab:^\
 " ステータスラインの表示を固定
 "------------------------------------------------------------
 set laststatus=2
+let g:lightline = {
+	\ 'colorscheme' : 'wombat',
+	\ }
 
 "------------------------------------------------------------
 "挿入モード時、ステータスラインの色を変更
