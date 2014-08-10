@@ -37,7 +37,7 @@ if has('vim_starting')
 	set runtimepath+=$DOTVIM/bundle/neobundle.vim/
 endif
 
-call neobundle#rc( expand('$DOTVIM/bundle/') )
+call neobundle#begin( expand('$DOTVIM/bundle/') )
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 
@@ -61,6 +61,8 @@ NeoBundle 'Shougo/vimproc', {
       \    },
       \ }
 endif
+
+call neobundle#end()
 
 filetype plugin indent on
 
