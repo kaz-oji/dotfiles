@@ -1,7 +1,10 @@
-# bundle �f�B���N�g���ȉ��̃t�@�C���𖳎�
+# bundle ディレクトリ以下のファイルを無視
 vimfiles/bundle/
 
-# �o�b�N�A�b�v�A�X���b�v�t�@�C���𖳎�
+# バックアップ、スワップファイルを無視
 .*~
 *~
 *.swp
+undo/
+.netrwhist
+
