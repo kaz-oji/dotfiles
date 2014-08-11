@@ -33,22 +33,22 @@ dotfiles/
 ### Mac OS X or Linux
 
 1. clone this repo
-```
-$ mkdir ~/projects
-$ git clone https://github.com/kaz-oji/dotfiles.git ~/projects/dotfiles
-```
+  ```
+  $ mkdir ~/projects
+  $ git clone https://github.com/kaz-oji/dotfiles.git ~/projects/dotfiles
+  ```
 
 2. clone NeoBundle.vim
-```
-$ git clone https://github.com/Shougo/neobundle.vim ~/projects/dotfiles/vimfiles/bundle/neobundle.vim
-```
+  ```
+  $ git clone https://github.com/Shougo/neobundle.vim ~/projects/dotfiles/vimfiles/bundle/neobundle.vim
+  ```
 
 3. create symlink
-```
-$ ln -s ~/projects/dotfiles/vimfiles ~/.vim
-$ ln -s ~/projects/dotfiles/_vimrc ~/.vimrc
-$ ln -s ~/projects/dotfiles/_gvimrc ~/.gvimrc
-```
+  ```
+  $ ln -s ~/projects/dotfiles/vimfiles ~/.vim
+  $ ln -s ~/projects/dotfiles/_vimrc ~/.vimrc
+  $ ln -s ~/projects/dotfiles/_gvimrc ~/.gvimrc
+  ```
 
 4. Launch **Vim**
 
@@ -58,16 +58,16 @@ $ ln -s ~/projects/dotfiles/_gvimrc ~/.gvimrc
 
 1. clone this repo (on Git Bash)
 
-```
-$ mkdir ~/projects
-$ git clone https://github.com/kaz-oji/dotfiles.git ~/projects/dotfiles
-```
+  ```
+  $ mkdir ~/projects
+  $ git clone https://github.com/kaz-oji/dotfiles.git ~/projects/dotfiles
+  ```
 
 2. clone NeoBundle.vim (on Git Bash)
 
-```
-$ git clone https://github.com/Shougo/neobundle.vim ~/projects/dotfiles/vimfiles/bundle/neobundle.vim
-```
+  ```
+  $ git clone https://github.com/Shougo/neobundle.vim ~/projects/dotfiles/vimfiles/bundle/neobundle.vim
+  ```
 
 3. create symlink
   1. Launch command prompt(cmd.exe) with administrative privileges.
@@ -77,16 +77,16 @@ $ git clone https://github.com/Shougo/neobundle.vim ~/projects/dotfiles/vimfiles
 
   2. Move to HOME dir
 
-  ```
-  >cd %HOME%
-  ```
+    ```
+    >cd %HOME%
+    ```
   3. create symlink
 
-  ```
-  >mklink /D vimfiles projects\dotfiles\vimfiles
-  >mklink _vimrc projects\dotfiles\_vimrc
-  >mklink _gvimrc projects\dotfiles\_gvimrc
-   ```
+    ```
+    >mklink /D vimfiles projects\dotfiles\vimfiles
+    >mklink _vimrc projects\dotfiles\_vimrc
+    >mklink _gvimrc projects\dotfiles\_gvimrc
+     ```
 
 4. Launch **Vim**
 
