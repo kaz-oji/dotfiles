@@ -15,7 +15,7 @@ This is my dotfiles for **Vim**.
 ```
 dotfiles/
   +--vimfiles/
-  |    +--bundle/  for plugins(managed using NeBundle.vim)
+  |    +--bundle/  for plugins(managed using NeoBundle.vim)
   |    +--backup/  for backup files
   |    +--swp/     for swap files
   |    `--undo/    for undo files
@@ -73,15 +73,15 @@ $ git clone https://github.com/Shougo/neobundle.vim ~/projects/dotfiles/vimfiles
      2. Input "cmd.exe" to search box.
      3. Press [Enter] key with [Ctrl]+[Shift] keys.
   2. Move to HOME dir
-     ```
-     >cd %HOME%
-     ```
+```
+>cd %HOME%
+```
   3. create symlink
-     ```
-     >mklink /D vimfiles projects\dotfiles\vimfiles
-     >mklink _vimrc projects\dotfiles\_vimrc
-     >mklink _gvimrc projects\dotfiles\_gvimrc
-     ```
+```
+>mklink /D vimfiles projects\dotfiles\vimfiles
+>mklink _vimrc projects\dotfiles\_vimrc
+>mklink _gvimrc projects\dotfiles\_gvimrc
+```
 
 4. Launch **Vim**
 
