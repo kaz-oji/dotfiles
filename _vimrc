@@ -198,10 +198,8 @@ augroup END
 
 " Cursor color for IME
 function! s:CursorColor()
-	if has('multi_byte_ime')
-		highlight Cursor guifg=NONE guibg=Green
-		highlight CursorIM guifg=NONE guibg=Purple
-	endif
+    highlight Cursor ctermfg=NONE ctermbg=Green guifg=NONE guibg=Green
+    highlight CursorIM ctermfg=NONE ctermbg=Magenta guifg=NONE guibg=Purple
 endfunction
 autocmd ColorScheme * call s:CursorColor()
 
