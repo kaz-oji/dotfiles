@@ -48,6 +48,7 @@ NeoBundle 'Shougo/unite-outline'
 NeoBundle 'fuenor/qfixhowm'
 NeoBundle 'taglist.vim'
 "NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'vim-scripts/desert256.vim'
 NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'jeffreyiacono/vim-colors-wombat'
 NeoBundle 'rking/ag.vim'
@@ -194,4 +195,13 @@ augroup highlightDoubleByteSpace
   autocmd VimEnter,Colorscheme * highlight DoubleByteSpace term=underline ctermbg=LightMagenta guibg=LightMagenta
   autocmd VimEnter,WinEnter,BufRead * match DoubleByteSpace /　/
 augroup END
+
+" Cursor color for IME
+function! s:CursorColor()
+	if has('multi_byte_ime')
+		highlight Cursor guifg=NONE guibg=Green
+		highlight CursorIM guifg=NONE guibg=Purple
+	endif
+endfunction
+autocmd ColorScheme * call s:CursorColor()
 
