@@ -30,6 +30,20 @@ set guioptions-=T
 set textwidth=0
 
 "------------------------------------------------------------
+" Cursor color for IME
+" **need to define before 'colorscheme' command.**
+"------------------------------------------------------------
+function! s:CursorColor()
+    highlight Cursor guifg=NONE guibg=Green
+    highlight CursorIM guifg=NONE guibg=Purple
+endfunction
+
+augroup ColorSchemeHook
+    autocmd!
+    autocmd ColorScheme * call s:CursorColor()
+augroup END
+
+"------------------------------------------------------------
 " カラースキーマ設定
 "------------------------------------------------------------
 colorscheme desert256

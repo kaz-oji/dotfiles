@@ -196,10 +196,3 @@ augroup highlightDoubleByteSpace
   autocmd VimEnter,WinEnter,BufRead * match DoubleByteSpace /　/
 augroup END
 
-" Cursor color for IME
-function! s:CursorColor()
-    highlight Cursor ctermfg=NONE ctermbg=Green guifg=NONE guibg=Green
-    highlight CursorIM ctermfg=NONE ctermbg=Magenta guifg=NONE guibg=Purple
-endfunction
-autocmd ColorScheme * call s:CursorColor()
-
