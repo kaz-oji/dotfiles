@@ -101,6 +101,7 @@ endif
 nnoremap <SPACE> <PageDown>
 nnoremap <S-SPACE> <PageUp>
 nnoremap ZZ <Nop>
+inoremap <C-@> <Nop>
 
 " for Unite
 nnoremap [unite] <Nop>
