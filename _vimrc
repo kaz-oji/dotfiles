@@ -53,6 +53,9 @@ NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'jeffreyiacono/vim-colors-wombat'
 NeoBundle 'rking/ag.vim'
 NeoBundle 'itchyny/lightline.vim'
+NeoBundle 'sjl/badwolf'
+NeoBundle 'vim-scripts/phd'
+NeoBundle 'jpo/vim-railscasts-theme'
 
 if has('mac') || has('unix')
 NeoBundle 'Shougo/vimproc', {
