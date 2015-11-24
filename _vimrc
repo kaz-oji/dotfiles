@@ -56,6 +56,8 @@ NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'sjl/badwolf'
 NeoBundle 'vim-scripts/phd'
 NeoBundle 'jpo/vim-railscasts-theme'
+NeoBundle 'junegunn/seoul256.vim'
+NeoBundle 'ctrlpvim/ctrlp.vim'
 
 if has('mac') || has('unix')
 NeoBundle 'Shougo/vimproc', {
@@ -206,4 +208,9 @@ augroup highlightDoubleByteSpace
   autocmd VimEnter,Colorscheme * highlight DoubleByteSpace term=underline ctermbg=LightMagenta guibg=LightMagenta
   autocmd VimEnter,WinEnter,BufRead * match DoubleByteSpace /　/
 augroup END
+
+"------------------------------------------------------------
+" seoul256 setting
+"------------------------------------------------------------
+let g:seoul256_background = 233
 
