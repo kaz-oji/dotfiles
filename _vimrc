@@ -58,6 +58,8 @@ NeoBundle 'vim-scripts/phd'
 NeoBundle 'jpo/vim-railscasts-theme'
 NeoBundle 'junegunn/seoul256.vim'
 NeoBundle 'ctrlpvim/ctrlp.vim'
+NeoBundle 'NLKNguyen/papercolor-theme'
+NeoBundle 'chriskempson/vim-tomorrow-theme'
 
 if has('mac') || has('unix')
 NeoBundle 'Shougo/vimproc', {
