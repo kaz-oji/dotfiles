@@ -3,7 +3,7 @@
 This is my dotfiles for **Vim**.
 
 ### Target platforms:
-- Windows 7
+- Windows 7, 10
   - Vim+kaoriya
 - Mac OS X
   - MacVim-kaoriya
@@ -52,7 +52,7 @@ dotfiles/
 
 4. Launch **Vim**
 
-### Windows 7
+### Windows 7, 10
 
 0.  Set the home directory path to **HOME** environment variable
 
