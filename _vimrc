@@ -1,4 +1,4 @@
-set nocompatible
+scriptencoding utf-8
 
 "------------------------------------------------------------
 " environment dependence
@@ -47,7 +47,6 @@ NeoBundle 'Shougo/vimfiler'
 NeoBundle 'Shougo/unite-outline'
 NeoBundle 'fuenor/qfixhowm'
 NeoBundle 'taglist.vim'
-"NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'vim-scripts/desert256.vim'
 NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'jeffreyiacono/vim-colors-wombat'
@@ -75,11 +74,6 @@ call neobundle#end()
 filetype plugin indent on
 
 NeoBundleCheck
-
-"------------------------------------------------------------
-" NERD Tree setting
-"------------------------------------------------------------
-let NERDTreeWinPos='right'
 
 "------------------------------------------------------------
 " VimFiler setting
@@ -204,15 +198,10 @@ endfunction
 "------------------------------------------------------------
 "全角スペースを　で表示
 "------------------------------------------------------------
-scriptencoding utf-8
 augroup highlightDoubleByteSpace
   autocmd!
   autocmd VimEnter,Colorscheme * highlight DoubleByteSpace term=underline ctermbg=LightMagenta guibg=LightMagenta
   autocmd VimEnter,WinEnter,BufRead * match DoubleByteSpace /　/
 augroup END
 
-"------------------------------------------------------------
-" seoul256 setting
-"------------------------------------------------------------
-let g:seoul256_background = 233
 
