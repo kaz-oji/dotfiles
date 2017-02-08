@@ -6,6 +6,8 @@ scriptencoding utf-8
 if has('win32')
 	set shellslash
 	let $DOTVIM = expand('~/vimfiles')
+elseif has('win32unix')
+	let $DOTVIM = expand('~/vimfiles')
 else
 	let $DOTVIM = expand('~/.vim')
 endif
