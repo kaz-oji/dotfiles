@@ -31,9 +31,11 @@ set shiftwidth=4
 set noexpandtab
 
 "------------------------------------------------------------
-" Read Neobundle setting.
+" Read plugin manager setting.
 "------------------------------------------------------------
-execute 'source' $DOTVIM.'/neobundle_rc.vim'
+
+"execute 'source' $DOTVIM.'/neobundle_rc.vim'
+execute 'source' $DOTVIM.'/dein_rc.vim'
 
 "------------------------------------------------------------
 " VimFiler setting
