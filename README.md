@@ -53,9 +53,11 @@ dotfiles/
 3. Launch **Vim**
 
 4. Clone dein.vim automatically
+
   If **dein.vim** is not installed, 'clone' will be performed automatically.
 
 5. Install plugins automatically
+
   If some plugins are not installed, installation will be performed automatically.
 
 ### Windows 7, 10
@@ -91,8 +93,10 @@ dotfiles/
 3. Launch **Vim**
 
 4. Clone dein.vim automatically
+
   If **dein.vim** is not installed, 'clone' will be performed automatically.
 
 5. Install plugins automatically
+
   If some plugins are not installed, installation will be performed automatically.
 
