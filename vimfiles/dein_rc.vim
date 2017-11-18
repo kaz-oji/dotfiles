@@ -24,7 +24,7 @@ if dein#load_state( s:bundle_dir )
     call dein#add('Shougo/vimfiler')
     call dein#add('Shougo/unite-outline')
     call dein#add('ctrlpvim/ctrlp.vim')
-    call dein#add('taglist.vim')
+    call dein#add('vim-scripts/taglist.vim')
     call dein#add('fuenor/qfixhowm')
     call dein#add('itchyny/lightline.vim')
 
