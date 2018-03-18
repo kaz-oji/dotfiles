@@ -74,6 +74,15 @@ nnoremap <silent> [unite]o :<C-u>Unite<Space>-vertical<Space>-winwidth=40<Space>
 nnoremap <silent> [unite]g :<C-u>Unite grep -buffer-name=search-buffer<CR>
 nnoremap <silent> [unite]r :<C-u>UniteResume search-buffer<CR>
 
+" for unite-gtags
+nnoremap [gtags] <Nop>
+nmap <Leader>g [gtags]
+nnoremap <silent> [gtags]b :<C-u>!gtags -v<CR>
+nnoremap <silent> [gtags]u :<C-u>!gtags -vi<CR>
+nnoremap <silent> [gtags]d :<C-u>Unite<Space>gtags/def<CR>
+nnoremap <silent> [gtags]r :<C-u>Unite<Space>gtags/ref<CR>
+nnoremap <silent> [gtags]g :<C-u>Unite<Space>gtags/grep<CR>
+
 " for VimFiler
 nnoremap [vimfiler] <Nop>
 nmap <Leader>f [vimfiler]

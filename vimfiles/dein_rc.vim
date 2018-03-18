@@ -27,6 +27,7 @@ if dein#load_state( s:bundle_dir )
     call dein#add('vim-scripts/taglist.vim')
     call dein#add('fuenor/qfixhowm')
     call dein#add('itchyny/lightline.vim')
+    call dein#add('hewes/unite-gtags')
 
     "colorscheme
     call dein#add('vim-scripts/desert256.vim')
