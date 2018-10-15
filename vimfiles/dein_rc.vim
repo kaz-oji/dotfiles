@@ -19,6 +19,9 @@ if dein#load_state( s:bundle_dir )
     call dein#begin( s:bundle_dir )
 
     call dein#add('Shougo/dein.vim')
+    if has('python3')
+        call dein#add('Shougo/denite.nvim')
+    endif
     call dein#add('Shougo/unite.vim')
     call dein#add('Shougo/neomru.vim')
     call dein#add('Shougo/vimfiler')
@@ -27,6 +30,7 @@ if dein#load_state( s:bundle_dir )
     call dein#add('vim-scripts/taglist.vim')
     call dein#add('fuenor/qfixhowm')
     call dein#add('itchyny/lightline.vim')
+    call dein#add('hewes/unite-gtags')
 
     "colorscheme
     call dein#add('vim-scripts/desert256.vim')
