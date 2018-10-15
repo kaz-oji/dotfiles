@@ -17,17 +17,18 @@ if has('macunix')
 endif
 
 "------------------------------------------------------------
-" バックアップ設定
+" backup, swap, undo directory settings
 "------------------------------------------------------------
 set backupdir=$DOTVIM/backups
 set directory=$DOTVIM/swp
 set undodir=$DOTVIM/undo
 
 "------------------------------------------------------------
-" Tab 設定
+" Tab setting
 "------------------------------------------------------------
 set tabstop=4
-set shiftwidth=4
+" shiftwidth is same as tabstop.
+set shiftwidth=0
 set noexpandtab
 
 "------------------------------------------------------------
@@ -119,11 +120,12 @@ let QFixHowm_MenuPreviewEnable=0
 let qfixmemo_random_columns = 0
 
 "------------------------------------------------------------
-" 特殊文字表示
+" show special chars
 "------------------------------------------------------------
 set list
-" <TAB> を表示
+" show tabs by '^' and ' '.
 set listchars=tab:^\ 
+"                   ^ space char is here!
 
 "------------------------------------------------------------
 " ステータスラインの表示を固定
