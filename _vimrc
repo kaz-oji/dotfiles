@@ -17,17 +17,18 @@ if has('macunix')
 endif
 
 "------------------------------------------------------------
-" バックアップ設定
+" backup, swap, undo directory settings
 "------------------------------------------------------------
 set backupdir=$DOTVIM/backups
 set directory=$DOTVIM/swp
 set undodir=$DOTVIM/undo
 
 "------------------------------------------------------------
-" Tab 設定
+" Tab setting
 "------------------------------------------------------------
 set tabstop=4
-set shiftwidth=4
+" shiftwidth is same as tabstop.
+set shiftwidth=0
 set noexpandtab
 
 "------------------------------------------------------------
@@ -73,6 +74,16 @@ nnoremap <silent> [unite]f :<C-u>Unite<Space>file<CR>
 nnoremap <silent> [unite]o :<C-u>Unite<Space>-vertical<Space>-winwidth=40<Space>outline<CR>
 nnoremap <silent> [unite]g :<C-u>Unite grep -buffer-name=search-buffer<CR>
 nnoremap <silent> [unite]r :<C-u>UniteResume search-buffer<CR>
+
+" for denite.nvim
+" denite.nvim need python3
+if has('python3')
+nnoremap [denite] <Nop>
+nmap <Leader>d [denite]
+nnoremap <silent> [denite]b :<C-u>Denite<Space>-mode=normal -smartcase buffer<CR>
+nnoremap <silent> [denite]m :<C-u>Denite<Space>-mode=normal -smartcase file_mru<CR>
+nnoremap <silent> [denite]f :<C-u>Denite<Space>-mode=normal -smartcase file<CR>
+endif
 
 " for unite-gtags
 nnoremap [gtags] <Nop>
@@ -120,11 +131,12 @@ let QFixHowm_MenuPreviewEnable=0
 let qfixmemo_random_columns = 0
 
 "------------------------------------------------------------
-" 特殊文字表示
+" show special chars
 "------------------------------------------------------------
 set list
-" <TAB> を表示
+" show tabs by '^' and ' '.
 set listchars=tab:^\ 
+"                   ^ space char is here!
 
 "------------------------------------------------------------
 " ステータスラインの表示を固定
