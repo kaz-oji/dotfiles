@@ -86,7 +86,8 @@ nnoremap <silent> [gtags]g :<C-u>Unite<Space>gtags/grep<CR>
 " for VimFiler
 nnoremap [vimfiler] <Nop>
 nmap <Leader>f [vimfiler]
-nnoremap <silent> [vimfiler]e :<C-u>VimFilerExplorer<Space>-winwidth=70<Space>.<CR>
+"nnoremap <silent> [vimfiler]e :<C-u>VimFilerExplorer<Space>-winwidth=50<Space>.<CR>
+nnoremap <silent> [vimfiler]e :<C-u>VimFilerExplorer<Space>-winwidth=50<CR>
 
 " for TagList
 nnoremap [tlist] <Nop>
