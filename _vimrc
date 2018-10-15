@@ -75,6 +75,16 @@ nnoremap <silent> [unite]o :<C-u>Unite<Space>-vertical<Space>-winwidth=40<Space>
 nnoremap <silent> [unite]g :<C-u>Unite grep -buffer-name=search-buffer<CR>
 nnoremap <silent> [unite]r :<C-u>UniteResume search-buffer<CR>
 
+" for denite.nvim
+" denite.nvim need python3
+if has('python3')
+nnoremap [denite] <Nop>
+nmap <Leader>d [denite]
+nnoremap <silent> [denite]b :<C-u>Denite<Space>-mode=normal -smartcase buffer<CR>
+nnoremap <silent> [denite]m :<C-u>Denite<Space>-mode=normal -smartcase file_mru<CR>
+nnoremap <silent> [denite]f :<C-u>Denite<Space>-mode=normal -smartcase file<CR>
+endif
+
 " for unite-gtags
 nnoremap [gtags] <Nop>
 nmap <Leader>g [gtags]
