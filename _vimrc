@@ -85,14 +85,25 @@ nnoremap <silent> [denite]m :<C-u>Denite<Space>-mode=normal -smartcase file_mru<
 nnoremap <silent> [denite]f :<C-u>Denite<Space>-mode=normal -smartcase file<CR>
 endif
 
-" for unite-gtags
+" for gtags(denite or unite)
 nnoremap [gtags] <Nop>
 nmap <Leader>g [gtags]
 nnoremap <silent> [gtags]b :<C-u>!gtags -v<CR>
 nnoremap <silent> [gtags]u :<C-u>!gtags -vi<CR>
+
+if has('python3')
+" for denite-gtags
+nnoremap <silent> [gtags]a :<C-u>DeniteCursorWord<Space>-mode=normal -buffer-name=gtags_context gtags_context<CR>
+nnoremap <silent> [gtags]d :<C-u>DeniteCursorWord<Space>-mode=normal -buffer-name=gtags_def gtags_def<CR>
+nnoremap <silent> [gtags]r :<C-u>DeniteCursorWord<Space>-mode=normal -buffer-name=gtags_ref gtags_ref<CR>
+nnoremap <silent> [gtags]g :<C-u>DeniteCursorWord<Space>-mode=normal -buffer-name=gtags_grep gtags_grep<CR>
+else
+" for unite-gtags
 nnoremap <silent> [gtags]d :<C-u>Unite<Space>gtags/def<CR>
 nnoremap <silent> [gtags]r :<C-u>Unite<Space>gtags/ref<CR>
 nnoremap <silent> [gtags]g :<C-u>Unite<Space>gtags/grep<CR>
+endif
+
 
 " for VimFiler
 nnoremap [vimfiler] <Nop>
