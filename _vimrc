@@ -47,13 +47,32 @@ let g:vimfiler_as_default_explorer = 1
 " Unite setting
 "------------------------------------------------------------
 " grep setting
-if executable('ag')
-	" Use ag in unite grep source.
-	let g:unite_source_grep_command = 'ag'
-	let g:unite_source_grep_default_opts =
-				\ '--vimgrep --ignore ' .
-				\  '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
-	let g:unite_source_grep_recursive_opt = ''
+if dein#tap('unite.vim')
+	if executable('ag')
+		" Use ag in unite grep source.
+		let g:unite_source_grep_command = 'ag'
+		let g:unite_source_grep_default_opts =
+					\ '--vimgrep --hidden --ignore ' .
+					\  '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
+		let g:unite_source_grep_recursive_opt = ''
+	endif
+endif
+
+"------------------------------------------------------------
+" denite setting
+"------------------------------------------------------------
+if dein#tap('denite.nvim')
+	" grep setting
+	if executable('ag')
+		" Ag command on grep source
+		call denite#custom#var('grep', 'command', ['ag'])
+		call denite#custom#var('grep', 'default_opts',
+					\ ['--vimgrep'])
+		call denite#custom#var('grep', 'recursive_opts', [])
+		call denite#custom#var('grep', 'pattern_opt', [])
+		call denite#custom#var('grep', 'separator', ['--'])
+		call denite#custom#var('grep', 'final_opts', [])
+	endif
 endif
 
 "------------------------------------------------------------
@@ -65,6 +84,7 @@ nnoremap ZZ <Nop>
 inoremap <C-@> <Nop>
 
 " for Unite
+if dein#tap('unite.vim')
 nnoremap [unite] <Nop>
 nmap <Leader>u [unite]
 "nmap <M-u> [unite]
@@ -74,34 +94,40 @@ nnoremap <silent> [unite]f :<C-u>Unite<Space>file<CR>
 nnoremap <silent> [unite]o :<C-u>Unite<Space>-vertical<Space>-winwidth=40<Space>outline<CR>
 nnoremap <silent> [unite]g :<C-u>Unite grep -buffer-name=search-buffer<CR>
 nnoremap <silent> [unite]r :<C-u>UniteResume search-buffer<CR>
+endif
 
 " for denite.nvim
 " denite.nvim need python3
-if has('python3')
+if dein#tap('denite.nvim')
 nnoremap [denite] <Nop>
 nmap <Leader>d [denite]
 nnoremap <silent> [denite]b :<C-u>Denite<Space>-mode=normal -smartcase buffer<CR>
 nnoremap <silent> [denite]m :<C-u>Denite<Space>-mode=normal -smartcase file_mru<CR>
 nnoremap <silent> [denite]f :<C-u>Denite<Space>-mode=normal -smartcase file<CR>
+nnoremap <silent> [denite]o :<C-u>Denite<Space>-mode=normal -smartcase outline<CR>
+nnoremap <silent> [denite]g :<C-u>DeniteCursorWord<Space>-mode=normal -buffer-name=search-buffer<Space>grep<CR>
+nnoremap <silent> [denite]r :<C-u>Denite<Space>-mode=normal -buffer-name=search-buffer -resume<CR>
 endif
 
 " for gtags(denite or unite)
+if executable('gtags')
 nnoremap [gtags] <Nop>
 nmap <Leader>g [gtags]
 nnoremap <silent> [gtags]b :<C-u>!gtags -v<CR>
 nnoremap <silent> [gtags]u :<C-u>!gtags -vi<CR>
 
-if has('python3')
+if dein#tap('denite.nvim')
 " for denite-gtags
 nnoremap <silent> [gtags]a :<C-u>DeniteCursorWord<Space>-mode=normal -buffer-name=gtags_context gtags_context<CR>
 nnoremap <silent> [gtags]d :<C-u>DeniteCursorWord<Space>-mode=normal -buffer-name=gtags_def gtags_def<CR>
 nnoremap <silent> [gtags]r :<C-u>DeniteCursorWord<Space>-mode=normal -buffer-name=gtags_ref gtags_ref<CR>
 nnoremap <silent> [gtags]g :<C-u>DeniteCursorWord<Space>-mode=normal -buffer-name=gtags_grep gtags_grep<CR>
-else
+elseif dein#tap('unite.vim')
 " for unite-gtags
 nnoremap <silent> [gtags]d :<C-u>Unite<Space>gtags/def<CR>
 nnoremap <silent> [gtags]r :<C-u>Unite<Space>gtags/ref<CR>
 nnoremap <silent> [gtags]g :<C-u>Unite<Space>gtags/grep<CR>
+endif
 endif
 
 
