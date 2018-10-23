@@ -48,7 +48,13 @@ let g:vimfiler_as_default_explorer = 1
 "------------------------------------------------------------
 " grep setting
 if dein#tap('unite.vim')
-	if executable('ag')
+	if executable('pt')
+		" Use pt (the platinum searcher)
+		" https://github.com/monochromegane/the_platinum_searcher
+		let g:unite_source_grep_command = 'pt'
+		let g:unite_source_grep_default_opts = '--nogroup --nocolor'
+		let g:unite_source_grep_recursive_opt = ''
+	elseif executable('ag')
 		" Use ag in unite grep source.
 		let g:unite_source_grep_command = 'ag'
 		let g:unite_source_grep_default_opts =
@@ -63,7 +69,25 @@ endif
 "------------------------------------------------------------
 if dein#tap('denite.nvim')
 	" grep setting
-	if executable('ag')
+	if executable('rg')
+		" Ripgrep command on grep source
+		call denite#custom#var('grep', 'command', ['rg'])
+		call denite#custom#var('grep', 'default_opts',
+					\ ['--vimgrep', '--no-heading'])
+		call denite#custom#var('grep', 'recursive_opts', [])
+		call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
+		call denite#custom#var('grep', 'separator', ['--'])
+		call denite#custom#var('grep', 'final_opts', [])
+	elseif executable('pt')
+		" Pt command on grep source
+		call denite#custom#var('grep', 'command', ['pt'])
+		call denite#custom#var('grep', 'default_opts',
+					\ ['--nogroup', '--nocolor', '--smart-case'])
+		call denite#custom#var('grep', 'recursive_opts', [])
+		call denite#custom#var('grep', 'pattern_opt', [])
+		call denite#custom#var('grep', 'separator', ['--'])
+		call denite#custom#var('grep', 'final_opts', [])
+	elseif executable('ag')
 		" Ag command on grep source
 		call denite#custom#var('grep', 'command', ['ag'])
 		call denite#custom#var('grep', 'default_opts',
@@ -105,7 +129,8 @@ nnoremap <silent> [denite]b :<C-u>Denite<Space>-mode=normal -smartcase buffer<CR
 nnoremap <silent> [denite]m :<C-u>Denite<Space>-mode=normal -smartcase file_mru<CR>
 nnoremap <silent> [denite]f :<C-u>Denite<Space>-mode=normal -smartcase file<CR>
 nnoremap <silent> [denite]o :<C-u>Denite<Space>-mode=normal -smartcase outline<CR>
-nnoremap <silent> [denite]g :<C-u>DeniteCursorWord<Space>-mode=normal -buffer-name=search-buffer<Space>grep<CR>
+"nnoremap <silent> [denite]g :<C-u>DeniteCursorWord<Space>-mode=normal -buffer-name=search-buffer<Space>grep<CR>
+nnoremap <silent> [denite]g :<C-u>Denite<Space>-mode=normal -buffer-name=search-buffer<Space>grep<CR>
 nnoremap <silent> [denite]r :<C-u>Denite<Space>-mode=normal -buffer-name=search-buffer -resume<CR>
 endif
 
