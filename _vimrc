@@ -97,6 +97,11 @@ if dein#tap('denite.nvim')
 		call denite#custom#var('grep', 'separator', ['--'])
 		call denite#custom#var('grep', 'final_opts', [])
 	endif
+
+
+	" file_rec setting
+	let ignore=&wildignore .  ',*.pyc,.git,.hg,.svn'
+	call denite#custom#var('file_rec', 'command', ['scantree.py', '--ignore', ignore])
 endif
 
 "------------------------------------------------------------
@@ -127,10 +132,10 @@ nnoremap [denite] <Nop>
 nmap <Leader>d [denite]
 nnoremap <silent> [denite]b :<C-u>Denite<Space>-mode=normal -smartcase buffer<CR>
 nnoremap <silent> [denite]m :<C-u>Denite<Space>-mode=normal -smartcase file_mru<CR>
-nnoremap <silent> [denite]f :<C-u>Denite<Space>-mode=normal -smartcase file<CR>
+nnoremap <silent> [denite]f :<C-u>Denite<Space>-mode=normal -smartcase file_rec<CR>
 nnoremap <silent> [denite]o :<C-u>Denite<Space>-mode=normal -smartcase outline<CR>
 "nnoremap <silent> [denite]g :<C-u>DeniteCursorWord<Space>-mode=normal -buffer-name=search-buffer<Space>grep<CR>
-nnoremap <silent> [denite]g :<C-u>Denite<Space>-mode=normal -buffer-name=search-buffer<Space>grep<CR>
+nnoremap <silent> [denite]g :<C-u>Denite<Space>-mode=normal -buffer-name=search-buffer grep<CR>
 nnoremap <silent> [denite]r :<C-u>Denite<Space>-mode=normal -buffer-name=search-buffer -resume<CR>
 endif
 
