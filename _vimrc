@@ -135,7 +135,7 @@ nnoremap <silent> [denite]m :<C-u>Denite<Space>-mode=normal -smartcase file_mru<
 nnoremap <silent> [denite]f :<C-u>Denite<Space>-mode=normal -smartcase file_rec<CR>
 nnoremap <silent> [denite]o :<C-u>Denite<Space>-mode=normal -smartcase outline<CR>
 "nnoremap <silent> [denite]g :<C-u>DeniteCursorWord<Space>-mode=normal -buffer-name=search-buffer<Space>grep<CR>
-nnoremap <silent> [denite]g :<C-u>Denite<Space>-mode=normal -buffer-name=search-buffer grep<CR>
+nnoremap <silent> [denite]g :<C-u>Denite<Space>-mode=normal -no-empty -buffer-name=search-buffer grep<CR>
 nnoremap <silent> [denite]r :<C-u>Denite<Space>-mode=normal -buffer-name=search-buffer -resume<CR>
 endif
 
