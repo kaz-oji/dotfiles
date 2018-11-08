@@ -117,10 +117,10 @@ if dein#tap('unite.vim')
 nnoremap [unite] <Nop>
 nmap <Leader>u [unite]
 "nmap <M-u> [unite]
-nnoremap <silent> [unite]b :<C-u>Unite<Space>buffer<CR>
-nnoremap <silent> [unite]m :<C-u>Unite<Space>file_mru<CR>
-nnoremap <silent> [unite]f :<C-u>Unite<Space>file<CR>
-nnoremap <silent> [unite]o :<C-u>Unite<Space>-vertical<Space>-winwidth=40<Space>outline<CR>
+nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
+nnoremap <silent> [unite]m :<C-u>Unite file_mru<CR>
+nnoremap <silent> [unite]f :<C-u>Unite file<CR>
+nnoremap <silent> [unite]o :<C-u>Unite -vertical -winwidth=40 outline<CR>
 nnoremap <silent> [unite]g :<C-u>Unite grep -buffer-name=search-buffer<CR>
 nnoremap <silent> [unite]r :<C-u>UniteResume search-buffer<CR>
 endif
@@ -130,13 +130,13 @@ endif
 if dein#tap('denite.nvim')
 nnoremap [denite] <Nop>
 nmap <Leader>d [denite]
-nnoremap <silent> [denite]b :<C-u>Denite<Space>-mode=normal -smartcase buffer<CR>
-nnoremap <silent> [denite]m :<C-u>Denite<Space>-mode=normal -smartcase file_mru<CR>
-nnoremap <silent> [denite]f :<C-u>Denite<Space>-mode=normal -smartcase file_rec<CR>
-nnoremap <silent> [denite]o :<C-u>Denite<Space>-mode=normal -smartcase outline<CR>
-"nnoremap <silent> [denite]g :<C-u>DeniteCursorWord<Space>-mode=normal -buffer-name=search-buffer<Space>grep<CR>
-nnoremap <silent> [denite]g :<C-u>Denite<Space>-mode=normal -no-empty -buffer-name=search-buffer grep<CR>
-nnoremap <silent> [denite]r :<C-u>Denite<Space>-mode=normal -buffer-name=search-buffer -resume<CR>
+nnoremap <silent> [denite]b :<C-u>Denite -mode=normal -smartcase buffer<CR>
+nnoremap <silent> [denite]m :<C-u>Denite -mode=normal -smartcase file_mru<CR>
+nnoremap <silent> [denite]f :<C-u>Denite -mode=normal -smartcase file_rec<CR>
+nnoremap <silent> [denite]o :<C-u>Denite -mode=normal -smartcase outline<CR>
+"nnoremap <silent> [denite]g :<C-u>DeniteCursorWord -mode=normal -buffer-name=search-buffer grep<CR>
+nnoremap <silent> [denite]g :<C-u>Denite -mode=normal -no-empty -buffer-name=search-buffer grep<CR>
+nnoremap <silent> [denite]r :<C-u>Denite -mode=normal -buffer-name=search-buffer -resume<CR>
 endif
 
 " for gtags(denite or unite)
@@ -148,15 +148,15 @@ nnoremap <silent> [gtags]u :<C-u>!gtags -vi<CR>
 
 if dein#tap('denite.nvim')
 " for denite-gtags
-nnoremap <silent> [gtags]a :<C-u>DeniteCursorWord<Space>-mode=normal -buffer-name=gtags_context gtags_context<CR>
-nnoremap <silent> [gtags]d :<C-u>DeniteCursorWord<Space>-mode=normal -buffer-name=gtags_def gtags_def<CR>
-nnoremap <silent> [gtags]r :<C-u>DeniteCursorWord<Space>-mode=normal -buffer-name=gtags_ref gtags_ref<CR>
-nnoremap <silent> [gtags]g :<C-u>DeniteCursorWord<Space>-mode=normal -buffer-name=gtags_grep gtags_grep<CR>
+nnoremap <silent> [gtags]a :<C-u>DeniteCursorWord -mode=normal -buffer-name=gtags_context gtags_context<CR>
+nnoremap <silent> [gtags]d :<C-u>DeniteCursorWord -mode=normal -buffer-name=gtags_def gtags_def<CR>
+nnoremap <silent> [gtags]r :<C-u>DeniteCursorWord -mode=normal -buffer-name=gtags_ref gtags_ref<CR>
+nnoremap <silent> [gtags]g :<C-u>DeniteCursorWord -mode=normal -buffer-name=gtags_grep gtags_grep<CR>
 elseif dein#tap('unite.vim')
 " for unite-gtags
-nnoremap <silent> [gtags]d :<C-u>Unite<Space>gtags/def<CR>
-nnoremap <silent> [gtags]r :<C-u>Unite<Space>gtags/ref<CR>
-nnoremap <silent> [gtags]g :<C-u>Unite<Space>gtags/grep<CR>
+nnoremap <silent> [gtags]d :<C-u>Unite gtags/def<CR>
+nnoremap <silent> [gtags]r :<C-u>Unite gtags/ref<CR>
+nnoremap <silent> [gtags]g :<C-u>Unite gtags/grep<CR>
 endif
 endif
 
@@ -164,7 +164,7 @@ endif
 " for VimFiler
 nnoremap [vimfiler] <Nop>
 nmap <Leader>f [vimfiler]
-nnoremap <silent> [vimfiler]e :<C-u>VimFilerExplorer<Space>-winwidth=70<Space>.<CR>
+nnoremap <silent> [vimfiler]e :<C-u>VimFilerExplorer -winwidth=50<CR>
 
 " for TagList
 nnoremap [tlist] <Nop>
