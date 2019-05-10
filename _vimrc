@@ -22,6 +22,7 @@ endif
 set backupdir=$DOTVIM/backups
 set directory=$DOTVIM/swp
 set undodir=$DOTVIM/undo
+set undofile
 
 "------------------------------------------------------------
 " Tab setting
@@ -102,6 +103,10 @@ if dein#tap('denite.nvim')
 	" file_rec setting
 	let ignore=&wildignore .  ',*.pyc,.git,.hg,.svn'
 	call denite#custom#var('file_rec', 'command', ['scantree.py', '--ignore', ignore])
+
+	let g:python3_host_prog=$VIM."\\python.exe"
+"	let g:python3_host_prog=$VIM."\\python3.exe"
+"	let g:python3_host_prog="C:\\Program Files\\Python37\\python.exe"
 endif
 
 "------------------------------------------------------------
@@ -255,3 +260,18 @@ augroup highlightDoubleByteSpace
 augroup END
 
 
+"------------------------------------------------------------
+" cursor 
+"------------------------------------------------------------
+set cursorline
+
+"------------------------------------------------------------
+" wildmenu
+"------------------------------------------------------------
+set wildmenu
+set wildmode=full
+
+"------------------------------------------------------------
+" virtualedit
+"------------------------------------------------------------
+set virtualedit=block
