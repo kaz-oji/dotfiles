@@ -28,7 +28,6 @@ set undofile
 " Base setting
 "------------------------------------------------------------
 
-set ambiwidth=auto
 set ruler
 set display=truncate
 set showmatch
@@ -133,9 +132,9 @@ if dein#tap('denite.nvim')
 	let ignore=&wildignore .  ',*.pyc,.git,.hg,.svn'
 	call denite#custom#var('file_rec', 'command', ['scantree.py', '--ignore', ignore])
 
-	let g:python3_host_prog=$VIM."\\python.exe"
-"	let g:python3_host_prog=$VIM."\\python3.exe"
-"	let g:python3_host_prog="C:\\Program Files\\Python37\\python.exe"
+	if has('win32')
+		let g:python3_host_prog=$VIM."\\python.exe"
+	endif
 endif
 
 "------------------------------------------------------------
