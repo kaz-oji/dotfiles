@@ -25,12 +25,41 @@ set undodir=$DOTVIM/undo
 set undofile
 
 "------------------------------------------------------------
+" Base setting
+"------------------------------------------------------------
+
+set ambiwidth=auto
+set ruler
+set display=truncate
+set showmatch
+
+set ttimeoutlen=100
+set ttimeout
+
+set autoindent
+
+set hlsearch
+set ignorecase
+set smartcase
+set incsearch
+
+set backup
+
+set helplang=ja
+set nrformats=bin,hex
+
+set cmdheight=2
+set history=200
+
+set nolangremap
+
+"------------------------------------------------------------
 " Tab setting
 "------------------------------------------------------------
 set tabstop=4
 " shiftwidth is same as tabstop.
 set shiftwidth=0
-set noexpandtab
+set expandtab
 
 "------------------------------------------------------------
 " Read plugin manager setting.
