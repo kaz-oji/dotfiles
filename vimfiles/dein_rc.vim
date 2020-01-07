@@ -32,6 +32,10 @@ if dein#load_state( s:bundle_dir )
     call dein#add('itchyny/lightline.vim')
     call dein#add('hewes/unite-gtags')
     call dein#add('ozelentok/denite-gtags')
+	call dein#add('roxma/nvim-yarp')
+	call dein#add('roxma/vim-hug-neovim-rpc')
+	call dein#add('rust-lang/rust.vim')
+	call dein#add('zenlang/zen.vim')
 
     "colorscheme
     call dein#add('vim-scripts/desert256.vim')
