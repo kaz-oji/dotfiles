@@ -46,6 +46,7 @@ if dein#load_state( s:bundle_dir )
     call dein#add('jeffreyiacono/vim-colors-wombat')
     call dein#add('sjl/badwolf')
     call dein#add('altercation/vim-colors-solarized')
+    call dein#add('w0ng/vim-hybrid')
 
     " vimproc
     if !has('win32unix') && (has('mac') || has('unix'))
