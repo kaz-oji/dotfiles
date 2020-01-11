@@ -61,6 +61,58 @@ set shiftwidth=0
 set expandtab
 
 "------------------------------------------------------------
+" show special chars
+"------------------------------------------------------------
+set list
+" show tabs by '^' and ' '.
+set listchars=tab:^\ 
+"                   ^ space char is here!
+
+"------------------------------------------------------------
+"全角スペースを　で表示
+"------------------------------------------------------------
+augroup highlightDoubleByteSpace
+  autocmd!
+  autocmd Colorscheme * highlight DoubleByteSpace term=underline ctermbg=LightMagenta guibg=LightMagenta
+  autocmd VimEnter,WinEnter,BufRead * match DoubleByteSpace /　/
+augroup END
+
+"------------------------------------------------------------
+" Cursor color for IME
+" **need to define before 'colorscheme' command.**
+"------------------------------------------------------------
+function! s:CursorColor()
+    highlight Cursor guifg=NONE guibg=Green
+    highlight CursorIM guifg=NONE guibg=Purple
+endfunction
+
+augroup ColorSchemeHook
+    autocmd!
+    autocmd ColorScheme * call s:CursorColor()
+augroup END
+
+"------------------------------------------------------------
+" 行数表示
+"------------------------------------------------------------
+set number
+
+"------------------------------------------------------------
+" cursor 
+"------------------------------------------------------------
+set cursorline
+
+"------------------------------------------------------------
+" wildmenu
+"------------------------------------------------------------
+set wildmenu
+set wildmode=full
+
+"------------------------------------------------------------
+" virtualedit
+"------------------------------------------------------------
+set virtualedit=block
+
+"------------------------------------------------------------
 " Read plugin manager setting.
 "------------------------------------------------------------
 
@@ -230,14 +282,6 @@ let QFixHowm_MenuPreviewEnable=0
 let qfixmemo_random_columns = 0
 
 "------------------------------------------------------------
-" show special chars
-"------------------------------------------------------------
-set list
-" show tabs by '^' and ' '.
-set listchars=tab:^\ 
-"                   ^ space char is here!
-
-"------------------------------------------------------------
 " ステータスラインの表示を固定
 "------------------------------------------------------------
 set laststatus=2
@@ -279,27 +323,7 @@ function! s:GetHighlight(hi)
 endfunction
 
 "------------------------------------------------------------
-"全角スペースを　で表示
+" set colorscheme
 "------------------------------------------------------------
-augroup highlightDoubleByteSpace
-  autocmd!
-  autocmd VimEnter,Colorscheme * highlight DoubleByteSpace term=underline ctermbg=LightMagenta guibg=LightMagenta
-  autocmd VimEnter,WinEnter,BufRead * match DoubleByteSpace /　/
-augroup END
-
-
-"------------------------------------------------------------
-" cursor 
-"------------------------------------------------------------
-set cursorline
-
-"------------------------------------------------------------
-" wildmenu
-"------------------------------------------------------------
-set wildmenu
-set wildmode=full
-
-"------------------------------------------------------------
-" virtualedit
-"------------------------------------------------------------
-set virtualedit=block
+set background=dark
+colorscheme PaperColor
