@@ -37,6 +37,8 @@ if dein#load_state( s:bundle_dir )
     call dein#add('rust-lang/rust.vim')
     call dein#add('zenlang/zen.vim')
     call dein#add('vim-jp/vimdoc-ja')
+    call dein#add('airblade/vim-gitgutter')
+    call dein#add('tpope/vim-fugitive')
 
     "colorscheme
     call dein#add('vim-scripts/desert256.vim')
