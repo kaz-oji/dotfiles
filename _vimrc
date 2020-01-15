@@ -36,6 +36,7 @@ set ttimeoutlen=100
 set ttimeout
 
 set autoindent
+set smartindent
 
 set hlsearch
 set ignorecase
