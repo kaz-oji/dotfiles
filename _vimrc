@@ -332,4 +332,13 @@ endfunction
 " set colorscheme
 "------------------------------------------------------------
 set background=dark
-colorscheme PaperColor
+
+" for sonokai
+"let g:sonokai_style = 'shusia'
+"let g:sonokai_style = 'andromeda'
+let g:sonokai_style = 'atlantis'
+"let g:sonokai_style = 'maia'
+let g:sonokai_disable_italic_comment = 1
+
+colorscheme sonokai
+"colorscheme PaperColor

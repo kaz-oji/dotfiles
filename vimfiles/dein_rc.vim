@@ -35,10 +35,11 @@ if dein#load_state( s:bundle_dir )
     call dein#add('roxma/nvim-yarp')
     call dein#add('roxma/vim-hug-neovim-rpc')
     call dein#add('rust-lang/rust.vim')
-    call dein#add('zenlang/zen.vim')
+"    call dein#add('zenlang/zen.vim')
     call dein#add('vim-jp/vimdoc-ja')
     call dein#add('airblade/vim-gitgutter')
     call dein#add('tpope/vim-fugitive')
+    call dein#add('rhysd/vim-llvm')
 
     "colorscheme
     call dein#add('vim-scripts/desert256.vim')
@@ -49,6 +50,8 @@ if dein#load_state( s:bundle_dir )
     call dein#add('sjl/badwolf')
     call dein#add('altercation/vim-colors-solarized')
     call dein#add('w0ng/vim-hybrid')
+    call dein#add('joshdick/onedark.vim')
+    call dein#add('sainnhe/sonokai')
 
     " vimproc
     if !has('win32unix') && (has('mac') || has('unix'))
