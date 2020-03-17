@@ -185,7 +185,6 @@ if dein#tap('denite.nvim')
 		call denite#custom#var('grep', 'final_opts', [])
 	endif
 
-
 	" file_rec setting
 	let ignore=&wildignore .  ',*.pyc,.git,.hg,.svn'
 	call denite#custom#var('file_rec', 'command', ['scantree.py', '--ignore', ignore])
@@ -219,15 +218,36 @@ endif
 " for denite.nvim
 " denite.nvim need python3
 if dein#tap('denite.nvim')
-nnoremap [denite] <Nop>
-nmap <Leader>d [denite]
-nnoremap <silent> [denite]b :<C-u>Denite -mode=normal -smartcase buffer<CR>
-nnoremap <silent> [denite]m :<C-u>Denite -mode=normal -smartcase file_mru<CR>
-nnoremap <silent> [denite]f :<C-u>Denite -mode=normal -smartcase file_rec<CR>
-nnoremap <silent> [denite]o :<C-u>Denite -mode=normal -smartcase outline<CR>
-"nnoremap <silent> [denite]g :<C-u>DeniteCursorWord -mode=normal -buffer-name=search-buffer grep<CR>
-nnoremap <silent> [denite]g :<C-u>Denite -mode=normal -no-empty -buffer-name=search-buffer grep<CR>
-nnoremap <silent> [denite]r :<C-u>Denite -mode=normal -buffer-name=search-buffer -resume<CR>
+    " Define mappings
+    autocmd FileType denite call s:denite_my_settings()
+    function! s:denite_my_settings() abort
+        nnoremap <silent><buffer><expr> <CR>
+                    \ denite#do_map('do_action')
+        nnoremap <silent><buffer><expr> d
+                    \ denite#do_map('do_action', 'delete')
+        nnoremap <silent><buffer><expr> p
+                    \ denite#do_map('do_action', 'preview')
+        nnoremap <silent><buffer><expr> q
+                    \ denite#do_map('quit')
+        nnoremap <silent><buffer><expr> i
+                    \ denite#do_map('open_filter_buffer')
+        nnoremap <silent><buffer><expr> <Space>
+                    \ denite#do_map('toggle_select').'j'
+    endfunction
+
+    autocmd FileType denite-filter call s:denite_filter_my_settings()
+    function! s:denite_filter_my_settings() abort
+        imap <silent><buffer> <C-o> <Plug>(denite_filter_quit)
+    endfunction
+
+    nnoremap [denite] <Nop>
+    nmap <Leader>d [denite]
+    nnoremap <silent> [denite]b :<C-u>Denite -direction=dynamicbottom -auto-resize -smartcase buffer<CR>
+    nnoremap <silent> [denite]m :<C-u>Denite -direction=dynamicbottom -auto-resize -smartcase file_mru<CR>
+    nnoremap <silent> [denite]f :<C-u>Denite -direction=dynamicbottom -auto-resize -smartcase file/rec<CR>
+    nnoremap <silent> [denite]o :<C-u>Denite -direction=dynamicbottom -auto-resize -smartcase outline<CR>
+    nnoremap <silent> [denite]g :<C-u>Denite -direction=dynamicbottom -auto-resize -no-empty -buffer-name=search-buffer grep:::<CR>
+    nnoremap <silent> [denite]r :<C-u>Denite -direction=dynamicbottom -auto-resize -buffer-name=search-buffer -resume<CR>
 endif
 
 " for gtags(denite or unite)
@@ -239,10 +259,10 @@ nnoremap <silent> [gtags]u :<C-u>!gtags -vi<CR>
 
 if dein#tap('denite.nvim')
 " for denite-gtags
-nnoremap <silent> [gtags]a :<C-u>DeniteCursorWord -mode=normal -buffer-name=gtags_context gtags_context<CR>
-nnoremap <silent> [gtags]d :<C-u>DeniteCursorWord -mode=normal -buffer-name=gtags_def gtags_def<CR>
-nnoremap <silent> [gtags]r :<C-u>DeniteCursorWord -mode=normal -buffer-name=gtags_ref gtags_ref<CR>
-nnoremap <silent> [gtags]g :<C-u>DeniteCursorWord -mode=normal -buffer-name=gtags_grep gtags_grep<CR>
+nnoremap <silent> [gtags]a :<C-u>DeniteCursorWord -direction=dynamicbottom -auto-resize -buffer-name=gtags_context gtags_context<CR>
+nnoremap <silent> [gtags]d :<C-u>DeniteCursorWord -direction=dynamicbottom -auto-resize -buffer-name=gtags_def gtags_def<CR>
+nnoremap <silent> [gtags]r :<C-u>DeniteCursorWord -direction=dynamicbottom -auto-resize -buffer-name=gtags_ref gtags_ref<CR>
+nnoremap <silent> [gtags]g :<C-u>DeniteCursorWord -direction=dynamicbottom -auto-resize -buffer-name=gtags_grep gtags_grep<CR>
 elseif dein#tap('unite.vim')
 " for unite-gtags
 nnoremap <silent> [gtags]d :<C-u>Unite gtags/def<CR>
