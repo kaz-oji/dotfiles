@@ -160,7 +160,7 @@ if dein#tap('denite.nvim')
 		" Ripgrep command on grep source
 		call denite#custom#var('grep', 'command', ['rg'])
 		call denite#custom#var('grep', 'default_opts',
-					\ ['--vimgrep', '--no-heading'])
+					\ ['--vimgrep', '--no-heading', '--smart-case'])
 		call denite#custom#var('grep', 'recursive_opts', [])
 		call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
 		call denite#custom#var('grep', 'separator', ['--'])
@@ -246,7 +246,7 @@ if dein#tap('denite.nvim')
     nnoremap <silent> [denite]m :<C-u>Denite -direction=dynamicbottom -auto-resize -smartcase file_mru<CR>
     nnoremap <silent> [denite]f :<C-u>Denite -direction=dynamicbottom -auto-resize -smartcase file/rec<CR>
     nnoremap <silent> [denite]o :<C-u>Denite -direction=dynamicbottom -auto-resize -smartcase outline<CR>
-    nnoremap <silent> [denite]g :<C-u>Denite -direction=dynamicbottom -auto-resize -no-empty -buffer-name=search-buffer grep:::<CR>
+    nnoremap <silent> [denite]g :<C-u>Denite -direction=dynamicbottom -auto-resize -no-empty -buffer-name=search-buffer grep<CR>
     nnoremap <silent> [denite]r :<C-u>Denite -direction=dynamicbottom -auto-resize -buffer-name=search-buffer -resume<CR>
 endif
 
@@ -254,8 +254,10 @@ endif
 if executable('gtags')
 nnoremap [gtags] <Nop>
 nmap <Leader>g [gtags]
-nnoremap <silent> [gtags]b :<C-u>!gtags -v<CR>
-nnoremap <silent> [gtags]u :<C-u>!gtags -vi<CR>
+"nnoremap <silent> [gtags]b :<C-u>!gtags -v<CR>
+"nnoremap <silent> [gtags]u :<C-u>!gtags -vi<CR>
+nnoremap <silent> [gtags]b :<C-u>!gtags -v --gtagslabel=pygments<CR>
+nnoremap <silent> [gtags]u :<C-u>!gtags -vi --gtagslabel=pygments<CR>
 
 if dein#tap('denite.nvim')
 " for denite-gtags
