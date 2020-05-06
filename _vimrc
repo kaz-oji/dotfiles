@@ -1,5 +1,8 @@
 scriptencoding utf-8
 
+" need to set `encoding=utf-8` for using `denite.nvim`.
+set encoding=utf-8
+
 "------------------------------------------------------------
 " environment dependence
 "------------------------------------------------------------
