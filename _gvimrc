@@ -27,3 +27,18 @@ set guioptions-=T
 " 行の文字数最大値(0で無効化)
 "------------------------------------------------------------
 set textwidth=0
+
+"------------------------------------------------------------
+" set colorscheme
+"------------------------------------------------------------
+set background=dark
+
+" for sonokai
+"let g:sonokai_style = 'shusia'
+"let g:sonokai_style = 'andromeda'
+let g:sonokai_style = 'atlantis'
+"let g:sonokai_style = 'maia'
+let g:sonokai_disable_italic_comment = 1
+
+colorscheme sonokai
+"colorscheme PaperColor
