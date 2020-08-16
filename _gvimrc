@@ -5,6 +5,7 @@ if has("gui_win32")
 "	set guifont=MS_Gothic:h12:cSHIFTJIS
 "	set gfn=Migu_1M:h11:cSHIFTJIS:qDRAFT
 	set guifont=Migu_1M:h12:cSHIFTJIS:qDRAFT
+    set rop=type:directx,renmode:3,taamode:1
 elseif has('gui_gtk')
 	set guifont=Monospace\ 12
 endif
