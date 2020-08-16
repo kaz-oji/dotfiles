@@ -133,6 +133,20 @@ set updatetime=1000
 "------------------------------------------------------------
 let g:vimfiler_as_default_explorer = 1
 
+
+"------------------------------------------------------------
+" grep setting
+"------------------------------------------------------------
+if executable('rg')
+    let &grepprg = 'rg --vimgrep --hidden'
+    set grepformat=%f:%l:%c:%m
+endif
+
+augroup AutoQuickfix
+    autocmd!
+    autocmd QuickFixCmdPost *grep* cwindow
+augroup END
+
 "------------------------------------------------------------
 " Unite setting
 "------------------------------------------------------------
