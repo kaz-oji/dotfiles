@@ -41,6 +41,15 @@ if dein#load_state( s:bundle_dir )
     call dein#add('tpope/vim-fugitive')
     call dein#add('rhysd/vim-llvm')
 
+    " vim-lsp
+    call dein#add('prabirshrestha/asyncomplete.vim')
+    call dein#add('prabirshrestha/asyncomplete-lsp.vim')
+    call dein#add('prabirshrestha/vim-lsp')
+    call dein#add('mattn/vim-lsp-settings', {'merged': 0})
+    call dein#add('mattn/vim-lsp-icons')
+    call dein#add('hrsh7th/vim-vsnip')
+    call dein#add('hrsh7th/vim-vsnip-integ')
+
     "colorscheme
     call dein#add('vim-scripts/desert256.vim')
     call dein#add('vim-scripts/phd')
