@@ -40,6 +40,7 @@ if dein#load_state( s:bundle_dir )
     call dein#add('airblade/vim-gitgutter')
     call dein#add('tpope/vim-fugitive')
     call dein#add('rhysd/vim-llvm')
+    call dein#add('cespare/vim-toml')
 
     " vim-lsp
     call dein#add('prabirshrestha/asyncomplete.vim')
