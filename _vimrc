@@ -375,7 +375,12 @@ nnoremap <silent> [gtags]g :<C-u>Unite gtags/grep<CR>
 endif
 endif
 
-if dein#tap('defx.nvim')
+if dein#tap('fern.vim')
+nnoremap [fern] <Nop>
+nmap <Leader>f [fern]
+nnoremap <silent> [fern]e :<C-u>Fern . -drawer -reveal=% -width=50 -keep -toggle<CR>
+nnoremap <silent> [fern]h :<C-u>Fern %:h<CR>
+elseif dein#tap('defx.nvim')
 " for Defx
 nnoremap [defx] <Nop>
 nmap <Leader>f [defx]
