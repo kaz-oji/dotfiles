@@ -122,14 +122,15 @@ set virtualedit=block
 "------------------------------------------------------------
 
 "execute 'source' $DOTVIM.'/neobundle_rc.vim'
-execute 'source' $DOTVIM.'/dein_rc.vim'
+"execute 'source' $DOTVIM.'/dein_rc.vim'
+execute 'source' $DOTVIM.'/plug_rc.vim'
 
 "------------------------------------------------------------
 " vim-gitgutter setting
 "------------------------------------------------------------
 set updatetime=1000
 
-if dein#tap('defx.nvim')
+if ! empty(globpath(&rtp, 'autoload/defx.vim'))
     "------------------------------------------------------------
     " Defx setting
     "------------------------------------------------------------
@@ -213,7 +214,7 @@ if dein#tap('defx.nvim')
                 \ 'toggle': 1,
                 \ 'resume': 1,
                 \ })
-elseif dein#tap('vimfiler')
+elseif ! empty(globpath(&rtp, 'autoload/vimfier.vim'))
     "------------------------------------------------------------
     " VimFiler setting
     "------------------------------------------------------------
@@ -237,7 +238,7 @@ augroup END
 " Unite setting
 "------------------------------------------------------------
 " grep setting
-if dein#tap('unite.vim')
+if ! empty(globpath(&rtp, 'autoload/unite.vim'))
 	if executable('pt')
 		" Use pt (the platinum searcher)
 		" https://github.com/monochromegane/the_platinum_searcher
@@ -257,7 +258,7 @@ endif
 "------------------------------------------------------------
 " denite setting
 "------------------------------------------------------------
-if dein#tap('denite.nvim')
+"if dein#tap('denite.nvim')
 	" grep setting
 	if executable('rg')
 		" Ripgrep command on grep source
@@ -295,7 +296,7 @@ if dein#tap('denite.nvim')
 	if has('win32')
 		let g:python3_host_prog=$VIM."\\python.exe"
 	endif
-endif
+"endif
 
 "------------------------------------------------------------
 " key mapping
@@ -306,21 +307,21 @@ nnoremap ZZ <Nop>
 inoremap <C-@> <Nop>
 
 " for Unite
-if dein#tap('unite.vim')
-nnoremap [unite] <Nop>
-nmap <Leader>u [unite]
-"nmap <M-u> [unite]
-nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
-nnoremap <silent> [unite]m :<C-u>Unite file_mru<CR>
-nnoremap <silent> [unite]f :<C-u>Unite file<CR>
-nnoremap <silent> [unite]o :<C-u>Unite -vertical -winwidth=40 outline<CR>
-nnoremap <silent> [unite]g :<C-u>Unite grep -buffer-name=search-buffer<CR>
-nnoremap <silent> [unite]r :<C-u>UniteResume search-buffer<CR>
+if !empty(globpath(&rtp, 'autoload/unite.vim'))
+    nnoremap [unite] <Nop>
+    nmap <Leader>u [unite]
+    "nmap <M-u> [unite]
+    nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
+    nnoremap <silent> [unite]m :<C-u>Unite file_mru<CR>
+    nnoremap <silent> [unite]f :<C-u>Unite file<CR>
+    nnoremap <silent> [unite]o :<C-u>Unite -vertical -winwidth=40 outline<CR>
+    nnoremap <silent> [unite]g :<C-u>Unite grep -buffer-name=search-buffer<CR>
+    nnoremap <silent> [unite]r :<C-u>UniteResume search-buffer<CR>
 endif
 
 " for denite.nvim
 " denite.nvim need python3
-if dein#tap('denite.nvim')
+if !empty(globpath(&rtp, 'autoload/denite.vim'))
     " Define mappings
     autocmd FileType denite call s:denite_my_settings()
     function! s:denite_my_settings() abort
@@ -355,43 +356,43 @@ endif
 
 " for gtags(denite or unite)
 if executable('gtags')
-nnoremap [gtags] <Nop>
-nmap <Leader>g [gtags]
-"nnoremap <silent> [gtags]b :<C-u>!gtags -v<CR>
-"nnoremap <silent> [gtags]u :<C-u>!gtags -vi<CR>
-nnoremap <silent> [gtags]b :<C-u>!gtags -v --gtagslabel=pygments<CR>
-nnoremap <silent> [gtags]u :<C-u>!gtags -vi --gtagslabel=pygments<CR>
+    nnoremap [gtags] <Nop>
+    nmap <Leader>g [gtags]
+    "nnoremap <silent> [gtags]b :<C-u>!gtags -v<CR>
+    "nnoremap <silent> [gtags]u :<C-u>!gtags -vi<CR>
+    nnoremap <silent> [gtags]b :<C-u>!gtags -v --gtagslabel=pygments<CR>
+    nnoremap <silent> [gtags]u :<C-u>!gtags -vi --gtagslabel=pygments<CR>
 
-if dein#tap('denite.nvim')
-" for denite-gtags
-nnoremap <silent> [gtags]a :<C-u>DeniteCursorWord -direction=dynamicbottom -auto-resize -buffer-name=gtags_context gtags_context<CR>
-nnoremap <silent> [gtags]d :<C-u>DeniteCursorWord -direction=dynamicbottom -auto-resize -buffer-name=gtags_def gtags_def<CR>
-nnoremap <silent> [gtags]r :<C-u>DeniteCursorWord -direction=dynamicbottom -auto-resize -buffer-name=gtags_ref gtags_ref<CR>
-nnoremap <silent> [gtags]g :<C-u>DeniteCursorWord -direction=dynamicbottom -auto-resize -buffer-name=gtags_grep gtags_grep<CR>
-elseif dein#tap('unite.vim')
-" for unite-gtags
-nnoremap <silent> [gtags]d :<C-u>Unite gtags/def<CR>
-nnoremap <silent> [gtags]r :<C-u>Unite gtags/ref<CR>
-nnoremap <silent> [gtags]g :<C-u>Unite gtags/grep<CR>
-endif
+    if !empty(globpath(&rtp, 'autoload/denite.vim'))
+        " for denite-gtags
+        nnoremap <silent> [gtags]a :<C-u>DeniteCursorWord -direction=dynamicbottom -auto-resize -buffer-name=gtags_context gtags_context<CR>
+        nnoremap <silent> [gtags]d :<C-u>DeniteCursorWord -direction=dynamicbottom -auto-resize -buffer-name=gtags_def gtags_def<CR>
+        nnoremap <silent> [gtags]r :<C-u>DeniteCursorWord -direction=dynamicbottom -auto-resize -buffer-name=gtags_ref gtags_ref<CR>
+        nnoremap <silent> [gtags]g :<C-u>DeniteCursorWord -direction=dynamicbottom -auto-resize -buffer-name=gtags_grep gtags_grep<CR>
+    elseif !empty(globpath(&rtp, 'autoload/unite.vim'))
+        "" for unite-gtags
+        nnoremap <silent> [gtags]d :<C-u>Unite gtags/def<CR>
+        nnoremap <silent> [gtags]r :<C-u>Unite gtags/ref<CR>
+        nnoremap <silent> [gtags]g :<C-u>Unite gtags/grep<CR>
+    endif
 endif
 
-if dein#tap('fern.vim')
-nnoremap [fern] <Nop>
-nmap <Leader>f [fern]
-nnoremap <silent> [fern]e :<C-u>Fern . -drawer -reveal=% -width=50 -keep -toggle<CR>
-nnoremap <silent> [fern]h :<C-u>Fern %:h<CR>
-elseif dein#tap('defx.nvim')
-" for Defx
-nnoremap [defx] <Nop>
-nmap <Leader>f [defx]
-nnoremap <silent> [defx]e :<C-u>Defx<CR>
-nnoremap <silent> [defx]c :<C-u>Defx -no-resume<CR>
-elseif dein#tap('vimfiler')
-" for VimFiler
-nnoremap [vimfiler] <Nop>
-nmap <Leader>f [vimfiler]
-nnoremap <silent> [vimfiler]e :<C-u>VimFilerExplorer -winwidth=50<CR>
+if !empty(globpath(&rtp, 'autoload/fern.vim'))
+    nnoremap [fern] <Nop>
+    nmap <Leader>f [fern]
+    nnoremap <silent> [fern]e :<C-u>Fern . -drawer -reveal=% -width=50 -keep -toggle<CR>
+    nnoremap <silent> [fern]h :<C-u>Fern %:h<CR>
+elseif !empty(globpath(&rtp, 'autoload/defx.vim'))
+    " for Defx
+    nnoremap [defx] <Nop>
+    nmap <Leader>f [defx]
+    nnoremap <silent> [defx]e :<C-u>Defx<CR>
+    nnoremap <silent> [defx]c :<C-u>Defx -no-resume<CR>
+elseif !empty(globpath(&rtp, 'autoload/vimfiler.vim'))
+    " for VimFiler
+    nnoremap [vimfiler] <Nop>
+    nmap <Leader>f [vimfiler]
+    nnoremap <silent> [vimfiler]e :<C-u>VimFilerExplorer -winwidth=50<CR>
 endif
 
 " for TagList
@@ -492,6 +493,7 @@ let g:lsp_signature_help_enabled = 0
 set background=dark
 
 " for sonokai
+if ! empty(globpath(&rtp, 'autoload/sonokai.vim'))
 "let g:sonokai_style = 'shusia'
 "let g:sonokai_style = 'andromeda'
 let g:sonokai_style = 'atlantis'
@@ -499,4 +501,4 @@ let g:sonokai_style = 'atlantis'
 let g:sonokai_disable_italic_comment = 1
 
 colorscheme sonokai
-"colorscheme PaperColor
+endif
