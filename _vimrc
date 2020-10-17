@@ -258,7 +258,7 @@ endif
 "------------------------------------------------------------
 " denite setting
 "------------------------------------------------------------
-"if dein#tap('denite.nvim')
+if ! empty(globpath(&rtp, 'autoload/denite.vim'))
 	" grep setting
 	if executable('rg')
 		" Ripgrep command on grep source
@@ -296,7 +296,7 @@ endif
 	if has('win32')
 		let g:python3_host_prog=$VIM."\\python.exe"
 	endif
-"endif
+endif
 
 "------------------------------------------------------------
 " key mapping

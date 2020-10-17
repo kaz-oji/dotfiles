@@ -5,12 +5,27 @@
 if has('unix')
     if empty(glob('~/.vim/autoload/plug.vim'))
         silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+                    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
         autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+    endif
+elseif has('win32')
+    if empty(glob(expand($DOTVIM . '/autoload/plug.vim')))
+        set shell=powershell.exe
+        set shellcmdflag=-c
+        set shellquote=\"
+        set shellxquote=
+
+        silent !iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |
+                    \ ni $env:HOME/vimfiles/autoload/plug.vim -Force
+
+        echom "Please reboot Vim and execute :PlugInstall"
+        q!
+        " Windows 上では次の autocmd が正常に動作しないため再起動して手動実行 させる
+        "autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
     endif
 endif
 
-call plug#begin(expand($DOTVIM) . '/plugged')
+call plug#begin(expand($DOTVIM . '/plugged'))
 
 if has('python3')
     Plug 'Shougo/denite.nvim'

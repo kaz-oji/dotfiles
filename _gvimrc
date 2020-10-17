@@ -35,6 +35,7 @@ set textwidth=0
 set background=dark
 
 " for sonokai
+if ! empty(globpath(&rtp, 'autoload/sonokai.vim'))
 "let g:sonokai_style = 'shusia'
 "let g:sonokai_style = 'andromeda'
 let g:sonokai_style = 'atlantis'
@@ -42,4 +43,4 @@ let g:sonokai_style = 'atlantis'
 let g:sonokai_disable_italic_comment = 1
 
 colorscheme sonokai
-"colorscheme PaperColor
+endif
