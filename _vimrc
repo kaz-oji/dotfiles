@@ -7,7 +7,8 @@ set encoding=utf-8
 " environment dependence
 "------------------------------------------------------------
 if has('win32')
-	set shellslash
+" disable shellslash because it causes problem on fern.vim
+"	set shellslash
 	let $DOTVIM = expand('~/vimfiles')
 elseif has('win32unix')
 	let $DOTVIM = expand('~/vimfiles')
