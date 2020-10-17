@@ -2,14 +2,13 @@
 " vim-plug.vim configurations.
 "------------------------------------------------------------
 
-if has('unix')
-    if empty(glob('~/.vim/autoload/plug.vim'))
+" install plug.vim if does not exists.
+if empty(glob(expand($DOTVIM . '/autoload/plug.vim')))
+    if has('unix')
         silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
                     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
         autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-    endif
-elseif has('win32')
-    if empty(glob(expand($DOTVIM . '/autoload/plug.vim')))
+    elseif has('win32')
         set shell=powershell.exe
         set shellcmdflag=-c
         set shellquote=\"
