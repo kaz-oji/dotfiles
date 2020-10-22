@@ -3,60 +3,74 @@
 This is my dotfiles for **Vim**.
 
 ### Target Vim version:
-- Vim 8.0 or later
+- Vim 8.2 or later
 
 ### Target platforms:
 - Windows 10
   - Vim+kaoriya
-- Mac OS X
-  - MacVim-kaoriya
 - Linux(Ubuntu)
   - Vim
+
+## Requirements
+
+- git
+- curl
+- make
+- python3
+- pip3
 
 ## File hierarchy
 
 ```
 dotfiles/
   +--vimfiles/
-  |    +--dein/    for plugins(managed using dein.vim)
-  |    +--backups/ for backup files
-  |    +--swp/     for swap files
-  |    `--undo/    for undo files
+  |    +--dein/             for plugins(managed using dein.vim)
+  |    +--backups/          for backup files
+  |    +--swp/              for swap files
+  |    +--undo/             for undo files
+  |    +--dein_rc.vim       for dein.vim
+  |    `--plug_rc.vim       for vim-plug
   +--_vimrc
-  `--_gvimrc
+  +--_gvimrc
+  `--mklink.sh
 ```
 
 ### Notes
 
 **.emacs.d** is no longer under maintenance.
-**NeoBundle.vim** is not used now.
+**dein.vim** is not used now.
 
 ## Install
 
-### Mac OS X or Linux
+### Linux
 
 1. Clone this repo
   ```
-  $ mkdir ~/projects
-  $ git clone https://github.com/kaz-oji/dotfiles.git ~/projects/dotfiles
+  $ cd ~
+  $ git clone https://github.com/kaz-oji/dotfiles.git
   ```
 
 2. Create symlink
   ```
-  $ ln -s ~/projects/dotfiles/vimfiles ~/.vim
-  $ ln -s ~/projects/dotfiles/_vimrc ~/.vimrc
-  $ ln -s ~/projects/dotfiles/_gvimrc ~/.gvimrc
+  $ cd dotfiles/
+  $ ./mklink.sh
   ```
 
-3. Launch **Vim**
+3. Install python packages
+  ```
+  $ pip3 install --user msgpack
+  $ pip3 install --user pynvim
+  ```
 
-4. Clone dein.vim automatically
+4. Launch **Vim**
 
-  If **dein.vim** is not installed, 'clone' will be performed automatically.
+5. Download **plug.vim** automatically
+  
+    If **plug.vim** is not installed, download will be performed automatically.
 
-5. Install plugins automatically
-
-  If some plugins are not installed, installation will be performed automatically.
+6. Install plugins automatically
+  
+    If some plugins are not installed, installation will be performed automatically.
 
 ### Windows 10
 
@@ -65,8 +79,8 @@ dotfiles/
 1. clone this repo (on Git Bash)
 
   ```
-  $ mkdir ~/projects
-  $ git clone https://github.com/kaz-oji/dotfiles.git ~/projects/dotfiles
+  $ cd ~
+  $ git clone https://github.com/kaz-oji/dotfiles.git
   ```
 
 2. Create symlink
@@ -89,9 +103,10 @@ dotfiles/
     >mklink _gvimrc projects\dotfiles\_gvimrc
      ```
 
-3. Install Python3 and plugins
 
-  Need to install Python3 and some plugins for using `denite.nvim`.
+3. Install Python3 and plugins  
+  
+    Need to install Python3 and some plugins for using `denite.nvim`.
 
   1. Download Python embeddable and copy all files to folder where Vim installed.
   2. Install `pip`
@@ -108,17 +123,20 @@ dotfiles/
 
 4. Launch **Vim**
 
-5. Clone dein.vim automatically
+5. Download **plug.vim** automatically  
+  
+    If **plug.vim** is not installed, download will be performed automatically.
 
-  If **dein.vim** is not installed, 'clone' will be performed automatically.
+6. Install plugins automatically  
+  
+    If some plugins are not installed, installation will be performed automatically.
+  
+    If some error caused by Python on Windows, check the following value are correct.
 
-6. Install plugins automatically
+    ```
+    :echo g:python3_host_prog
+    ```
 
-  If some plugins are not installed, installation will be performed automatically.
+## TODO
 
-
-If some error caused by Python on Windows, check the following value are correct.
-
-```
-:echo g:python3_host_prog
-```
+- add description of install for PowerShell
