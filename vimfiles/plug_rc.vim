@@ -41,6 +41,7 @@ Plug 'hewes/unite-gtags'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-scripts/taglist.vim'
 Plug 'itchyny/lightline.vim'
+Plug 'tyru/capture.vim'
 
 " vimproc
 if !has('win32unix') && (has('mac') || has('unix'))
