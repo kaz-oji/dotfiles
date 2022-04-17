@@ -50,8 +50,16 @@ Plug 'vim-denops/denops.vim'
 Plug 'Shougo/ddu.vim'
 Plug 'Shougo/ddu-ui-ff'
 Plug 'Shougo/ddu-source-file_rec'
+
+Plug 'lambdalisue/mr.vim'
+Plug 'kuuote/ddu-source-mr'
+
+Plug 'Shougo/ddu-source-register'
+
 Plug 'Shougo/ddu-filter-matcher_substring'
+
 Plug 'Shougo/ddu-kind-file'
+Plug 'Shougo/ddu-kind-word'
 
 " vimproc
 if !has('win32unix') && (has('mac') || has('unix'))

@@ -311,7 +311,7 @@ if !empty(globpath(&rtp, 'autoload/ddu.vim'))
     "   →ここでは洗濯するファイルを開く `open` を設定。
     call ddu#custom#patch_global({
         \   'ui': 'ff',
-        \   'sources': [{'name': 'file_rec', 'params': {}}],
+        \   'sources': [{'name': 'file_rec', 'params': {}},],
         \   'sourceOptions': {
         \     '_': {
         \       'matchers': ['matcher_substring'],
@@ -321,7 +321,20 @@ if !empty(globpath(&rtp, 'autoload/ddu.vim'))
         \     'file': {
         \       'defaultAction': 'open',
         \     },
+        \     'word': {
+        \       'defaultAction': 'append',
+        \     },
         \   }
+        \ })
+
+    " ddu-source-register
+    call ddu#custom#patch_local('register', {
+        \ 'sources': [{'name': 'register'},],
+        \ })
+
+    " ddu-source-mr
+    call ddu#custom#patch_local('mr', {
+        \ 'sources': [{'name': 'mr'},],
         \ })
 
     " ddu-ui-ff key mappings
@@ -352,6 +365,10 @@ if !empty(globpath(&rtp, 'autoload/ddu.vim'))
     nmap <Leader>d [ddu]
     " file_rec 実行
     nnoremap <silent> [ddu]f <Cmd>call ddu#start({'name': 'file_rec'})<CR>
+    " register 実行
+    nnoremap <silent> [ddu]r <Cmd>call ddu#start({'name': 'register'})<CR>
+    " mru 実行
+    nnoremap <silent> [ddu]m <Cmd>call ddu#start({'name': 'mr'})<CR>
 endif
 
 "------------------------------------------------------------
