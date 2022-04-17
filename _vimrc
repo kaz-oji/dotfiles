@@ -257,44 +257,101 @@ endif
 "------------------------------------------------------------
 " denite setting
 "------------------------------------------------------------
-if ! empty(globpath(&rtp, 'autoload/denite.vim'))
-	" grep setting
-	if executable('rg')
-		" Ripgrep command on grep source
-		call denite#custom#var('grep', 'command', ['rg'])
-		call denite#custom#var('grep', 'default_opts',
-					\ ['--vimgrep', '--no-heading', '--smart-case'])
-		call denite#custom#var('grep', 'recursive_opts', [])
-		call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
-		call denite#custom#var('grep', 'separator', ['--'])
-		call denite#custom#var('grep', 'final_opts', [])
-	elseif executable('pt')
-		" Pt command on grep source
-		call denite#custom#var('grep', 'command', ['pt'])
-		call denite#custom#var('grep', 'default_opts',
-					\ ['--nogroup', '--nocolor', '--smart-case'])
-		call denite#custom#var('grep', 'recursive_opts', [])
-		call denite#custom#var('grep', 'pattern_opt', [])
-		call denite#custom#var('grep', 'separator', ['--'])
-		call denite#custom#var('grep', 'final_opts', [])
-	elseif executable('ag')
-		" Ag command on grep source
-		call denite#custom#var('grep', 'command', ['ag'])
-		call denite#custom#var('grep', 'default_opts',
-					\ ['--vimgrep'])
-		call denite#custom#var('grep', 'recursive_opts', [])
-		call denite#custom#var('grep', 'pattern_opt', [])
-		call denite#custom#var('grep', 'separator', ['--'])
-		call denite#custom#var('grep', 'final_opts', [])
-	endif
+"if ! empty(globpath(&rtp, 'autoload/denite.vim'))
+"	" grep setting
+"	if executable('rg')
+"		" Ripgrep command on grep source
+"		call denite#custom#var('grep', 'command', ['rg'])
+"		call denite#custom#var('grep', 'default_opts',
+"					\ ['--vimgrep', '--no-heading', '--smart-case'])
+"		call denite#custom#var('grep', 'recursive_opts', [])
+"		call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
+"		call denite#custom#var('grep', 'separator', ['--'])
+"		call denite#custom#var('grep', 'final_opts', [])
+"	elseif executable('pt')
+"		" Pt command on grep source
+"		call denite#custom#var('grep', 'command', ['pt'])
+"		call denite#custom#var('grep', 'default_opts',
+"					\ ['--nogroup', '--nocolor', '--smart-case'])
+"		call denite#custom#var('grep', 'recursive_opts', [])
+"		call denite#custom#var('grep', 'pattern_opt', [])
+"		call denite#custom#var('grep', 'separator', ['--'])
+"		call denite#custom#var('grep', 'final_opts', [])
+"	elseif executable('ag')
+"		" Ag command on grep source
+"		call denite#custom#var('grep', 'command', ['ag'])
+"		call denite#custom#var('grep', 'default_opts',
+"					\ ['--vimgrep'])
+"		call denite#custom#var('grep', 'recursive_opts', [])
+"		call denite#custom#var('grep', 'pattern_opt', [])
+"		call denite#custom#var('grep', 'separator', ['--'])
+"		call denite#custom#var('grep', 'final_opts', [])
+"	endif
+"
+"	" file_rec setting
+"	let ignore=&wildignore .  ',*.pyc,.git,.hg,.svn'
+"	call denite#custom#var('file_rec', 'command', ['scantree.py', '--ignore', ignore])
+"
+"	if has('win32')
+"		let g:python3_host_prog=$VIM."\\python.exe"
+"	endif
+"endif
 
-	" file_rec setting
-	let ignore=&wildignore .  ',*.pyc,.git,.hg,.svn'
-	call denite#custom#var('file_rec', 'command', ['scantree.py', '--ignore', ignore])
+"------------------------------------------------------------
+" ddu.vim setting
+"------------------------------------------------------------
+if !empty(globpath(&rtp, 'autoload/ddu.vim'))
+    " `ddu#custom#patch_global` によってグローバル設定を変更する
+    " 'ui' オプションに 'ff' を指定することで `ddu-ui-ff` を読み込むという意味になる
+    " `file_rec` source を使用するため `sources` オプションを設定
+    " `sourceOptions` に source 固有の設定をする。
+    " source 名に `_` を指定することでデフォルトの設定を変更
+    " 入力の絞り込みを行う `matchers` として `matcher_substring` を指定
+    " kind のデフォルトアクションを設定する必要がある。
+    "   →ここでは洗濯するファイルを開く `open` を設定。
+    call ddu#custom#patch_global({
+        \   'ui': 'ff',
+        \   'sources': [{'name': 'file_rec', 'params': {}}],
+        \   'sourceOptions': {
+        \     '_': {
+        \       'matchers': ['matcher_substring'],
+        \     },
+        \   },
+        \   'kindOptions': {
+        \     'file': {
+        \       'defaultAction': 'open',
+        \     },
+        \   }
+        \ })
 
-	if has('win32')
-		let g:python3_host_prog=$VIM."\\python.exe"
-	endif
+    " ddu-ui-ff key mappings
+    autocmd FileType ddu-ff call s:ddu_ff_my_settings()
+    function! s:ddu_ff_my_settings() abort
+        nnoremap <buffer><silent> <CR>
+            \ <Cmd>call ddu#ui#ff#do_action('itemAction')<CR>
+        nnoremap <buffer><silent> <Space>
+            \ <Cmd>call ddu#ui#ff#do_action('toggleSelectItem')<CR>
+        nnoremap <buffer><silent> i
+            \ <Cmd>call ddu#ui#ff#do_action('openFilterWindow')<CR>
+        nnoremap <buffer><silent> q
+            \ <Cmd>call ddu#ui#ff#do_action('quit')<CR>
+    endfunction
+
+    " ddu-ff-filter key mappings
+    autocmd FileType ddu-ff-filter call s:ddu_ff_filter_my_settings()
+    function! s:ddu_ff_filter_my_settings() abort
+        inoremap <buffer><silent> <CR>
+            \ <Esc><Cmd>close<CR>
+        nnoremap <buffer><silent> <CR>
+            \ <Cmd>close<CR>
+        nnoremap <buffer><silent> q
+            \ <Cmd>close<CR>
+    endfunction
+
+    nnoremap [ddu] <Nop>
+    nmap <Leader>d [ddu]
+    " file_rec 実行
+    nnoremap <silent> [ddu]f <Cmd>call ddu#start({'name': 'file_rec'})<CR>
 endif
 
 "------------------------------------------------------------
@@ -320,38 +377,38 @@ endif
 
 " for denite.nvim
 " denite.nvim need python3
-if !empty(globpath(&rtp, 'autoload/denite.vim'))
-    " Define mappings
-    autocmd FileType denite call s:denite_my_settings()
-    function! s:denite_my_settings() abort
-        nnoremap <silent><buffer><expr> <CR>
-                    \ denite#do_map('do_action')
-        nnoremap <silent><buffer><expr> d
-                    \ denite#do_map('do_action', 'delete')
-        nnoremap <silent><buffer><expr> p
-                    \ denite#do_map('do_action', 'preview')
-        nnoremap <silent><buffer><expr> q
-                    \ denite#do_map('quit')
-        nnoremap <silent><buffer><expr> i
-                    \ denite#do_map('open_filter_buffer')
-        nnoremap <silent><buffer><expr> <Space>
-                    \ denite#do_map('toggle_select').'j'
-    endfunction
-
-    autocmd FileType denite-filter call s:denite_filter_my_settings()
-    function! s:denite_filter_my_settings() abort
-        imap <silent><buffer> <C-o> <Plug>(denite_filter_quit)
-    endfunction
-
-    nnoremap [denite] <Nop>
-    nmap <Leader>d [denite]
-    nnoremap <silent> [denite]b :<C-u>Denite -direction=dynamicbottom -auto-resize -smartcase buffer<CR>
-    nnoremap <silent> [denite]m :<C-u>Denite -direction=dynamicbottom -auto-resize -smartcase file_mru<CR>
-    nnoremap <silent> [denite]f :<C-u>Denite -direction=dynamicbottom -auto-resize -smartcase file/rec<CR>
-    nnoremap <silent> [denite]o :<C-u>Denite -direction=dynamicbottom -auto-resize -smartcase outline<CR>
-    nnoremap <silent> [denite]g :<C-u>Denite -direction=dynamicbottom -auto-resize -no-empty -buffer-name=search-buffer grep<CR>
-    nnoremap <silent> [denite]r :<C-u>Denite -direction=dynamicbottom -auto-resize -buffer-name=search-buffer -resume<CR>
-endif
+"if !empty(globpath(&rtp, 'autoload/denite.vim'))
+"    " Define mappings
+"    autocmd FileType denite call s:denite_my_settings()
+"    function! s:denite_my_settings() abort
+"        nnoremap <silent><buffer><expr> <CR>
+"                    \ denite#do_map('do_action')
+"        nnoremap <silent><buffer><expr> d
+"                    \ denite#do_map('do_action', 'delete')
+"        nnoremap <silent><buffer><expr> p
+"                    \ denite#do_map('do_action', 'preview')
+"        nnoremap <silent><buffer><expr> q
+"                    \ denite#do_map('quit')
+"        nnoremap <silent><buffer><expr> i
+"                    \ denite#do_map('open_filter_buffer')
+"        nnoremap <silent><buffer><expr> <Space>
+"                    \ denite#do_map('toggle_select').'j'
+"    endfunction
+"
+"    autocmd FileType denite-filter call s:denite_filter_my_settings()
+"    function! s:denite_filter_my_settings() abort
+"        imap <silent><buffer> <C-o> <Plug>(denite_filter_quit)
+"    endfunction
+"
+"    nnoremap [denite] <Nop>
+"    nmap <Leader>d [denite]
+"    nnoremap <silent> [denite]b :<C-u>Denite -direction=dynamicbottom -auto-resize -smartcase buffer<CR>
+"    nnoremap <silent> [denite]m :<C-u>Denite -direction=dynamicbottom -auto-resize -smartcase file_mru<CR>
+"    nnoremap <silent> [denite]f :<C-u>Denite -direction=dynamicbottom -auto-resize -smartcase file/rec<CR>
+"    nnoremap <silent> [denite]o :<C-u>Denite -direction=dynamicbottom -auto-resize -smartcase outline<CR>
+"    nnoremap <silent> [denite]g :<C-u>Denite -direction=dynamicbottom -auto-resize -no-empty -buffer-name=search-buffer grep<CR>
+"    nnoremap <silent> [denite]r :<C-u>Denite -direction=dynamicbottom -auto-resize -buffer-name=search-buffer -resume<CR>
+"endif
 
 " for gtags(denite or unite)
 if executable('gtags')
@@ -362,18 +419,18 @@ if executable('gtags')
     nnoremap <silent> [gtags]b :<C-u>!gtags -v --gtagslabel=pygments<CR>
     nnoremap <silent> [gtags]u :<C-u>!gtags -vi --gtagslabel=pygments<CR>
 
-    if !empty(globpath(&rtp, 'autoload/denite.vim'))
-        " for denite-gtags
-        nnoremap <silent> [gtags]a :<C-u>DeniteCursorWord -direction=dynamicbottom -auto-resize -buffer-name=gtags_context gtags_context<CR>
-        nnoremap <silent> [gtags]d :<C-u>DeniteCursorWord -direction=dynamicbottom -auto-resize -buffer-name=gtags_def gtags_def<CR>
-        nnoremap <silent> [gtags]r :<C-u>DeniteCursorWord -direction=dynamicbottom -auto-resize -buffer-name=gtags_ref gtags_ref<CR>
-        nnoremap <silent> [gtags]g :<C-u>DeniteCursorWord -direction=dynamicbottom -auto-resize -buffer-name=gtags_grep gtags_grep<CR>
-    elseif !empty(globpath(&rtp, 'autoload/unite.vim'))
+"    if !empty(globpath(&rtp, 'autoload/denite.vim'))
+"        " for denite-gtags
+"        nnoremap <silent> [gtags]a :<C-u>DeniteCursorWord -direction=dynamicbottom -auto-resize -buffer-name=gtags_context gtags_context<CR>
+"        nnoremap <silent> [gtags]d :<C-u>DeniteCursorWord -direction=dynamicbottom -auto-resize -buffer-name=gtags_def gtags_def<CR>
+"        nnoremap <silent> [gtags]r :<C-u>DeniteCursorWord -direction=dynamicbottom -auto-resize -buffer-name=gtags_ref gtags_ref<CR>
+"        nnoremap <silent> [gtags]g :<C-u>DeniteCursorWord -direction=dynamicbottom -auto-resize -buffer-name=gtags_grep gtags_grep<CR>
+"    elseif !empty(globpath(&rtp, 'autoload/unite.vim'))
         "" for unite-gtags
         nnoremap <silent> [gtags]d :<C-u>Unite gtags/def<CR>
         nnoremap <silent> [gtags]r :<C-u>Unite gtags/ref<CR>
         nnoremap <silent> [gtags]g :<C-u>Unite gtags/grep<CR>
-    endif
+"    endif
 endif
 
 if !empty(globpath(&rtp, 'autoload/fern.vim'))
