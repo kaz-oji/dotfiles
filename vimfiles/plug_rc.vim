@@ -43,13 +43,16 @@ Plug 'vim-scripts/taglist.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'tyru/capture.vim'
 
+"------------------------------------------------------------
 " for ddu.vim
+"------------------------------------------------------------
 Plug 'vim-denops/denops.vim'
 " Uncomment and install when cheking if denops.vim works.
 "Plug 'vim-denops/denops-helloworld.vim'
 Plug 'Shougo/ddu.vim'
 Plug 'Shougo/ddu-ui-ff'
 Plug 'Shougo/ddu-source-file_rec'
+Plug 'Shougo/ddu-commands.vim'
 
 Plug 'lambdalisue/mr.vim'
 Plug 'kuuote/ddu-source-mr'
