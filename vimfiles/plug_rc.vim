@@ -26,13 +26,6 @@ endif
 
 call plug#begin(expand($DOTVIM . '/plugged'))
 
-if has('python3')
-    Plug 'Shougo/denite.nvim'
-    Plug 'roxma/nvim-yarp'
-    Plug 'roxma/vim-hug-neovim-rpc'
-    Plug 'ozelentok/denite-gtags'
-endif
-
 Plug 'lambdalisue/fern.vim'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/neomru.vim'
@@ -42,6 +35,29 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-scripts/taglist.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'tyru/capture.vim'
+
+"------------------------------------------------------------
+" for ddu.vim
+"------------------------------------------------------------
+Plug 'vim-denops/denops.vim'
+" Uncomment and install when cheking if denops.vim works.
+"Plug 'vim-denops/denops-helloworld.vim'
+Plug 'Shougo/ddu.vim'
+Plug 'Shougo/ddu-ui-ff'
+Plug 'Shougo/ddu-source-file_rec'
+Plug 'Shougo/ddu-commands.vim'
+
+Plug 'lambdalisue/mr.vim'
+Plug 'kuuote/ddu-source-mr'
+
+Plug 'Shougo/ddu-source-register'
+
+Plug 'Shougo/ddu-filter-matcher_substring'
+
+Plug 'Shougo/ddu-kind-file'
+Plug 'Shougo/ddu-kind-word'
+
+Plug 'shun/ddu-source-buffer'
 
 " vimproc
 if !has('win32unix') && (has('mac') || has('unix'))

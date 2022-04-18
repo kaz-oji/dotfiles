@@ -18,6 +18,10 @@ This is my dotfiles for **Vim**.
 - make
 - python3
 - pip3
+- [Deno](https://deno.land/)
+    - for ddu.vim
+- [denops.vim](https://github.com/vim-denops/denops.vim)
+    - for ddu.vim
 
 ## File hierarchy
 
@@ -136,6 +140,49 @@ dotfiles/
     ```
     :echo g:python3_host_prog
     ```
+
+## Installed plugins
+
+### unite.vim
+
+It works with the following plugins.
+
+* unite-outline
+* unite-gtags
+
+### ddu.vim
+
+> Ddu is the abbreviation of "dark deno-powered UI". 
+
+It works with the following plugins.
+
+* 'Shougo/ddu.vim'
+* 'Shougo/ddu-ui-ff'
+* 'Shougo/ddu-source-file_rec'
+* 'Shougo/ddu-filter-matcher_substring'
+* 'Shougo/ddu-kind-file'
+* 'Shougo/ddu-kind-word'
+* 'shun/ddu-source-buffer'
+* 'kuuote/ddu-source-mr'
+
+### vim-lsp
+
+> Async Language Server Protocol plugin for vim8 and neovim.
+
+It works with the following plugins.
+
+* 'prabirshrestha/asyncomplete.vim'
+* 'prabirshrestha/asyncomplete-lsp.vim'
+* 'mattn/vim-lsp-settings'
+* 'mattn/vim-lsp-icons'
+* 'hrsh7th/vim-vsnip'
+* 'hrsh7th/vim-vsnip-integ'
+
+### lightline.vim
+
+### vim-gitgutter
+
+### vim-fugitive
 
 ## TODO
 
