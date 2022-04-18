@@ -26,13 +26,6 @@ endif
 
 call plug#begin(expand($DOTVIM . '/plugged'))
 
-"if has('python3')
-"    Plug 'Shougo/denite.nvim'
-"    Plug 'roxma/nvim-yarp'
-"    Plug 'roxma/vim-hug-neovim-rpc'
-"    Plug 'ozelentok/denite-gtags'
-"endif
-
 Plug 'lambdalisue/fern.vim'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/neomru.vim'
