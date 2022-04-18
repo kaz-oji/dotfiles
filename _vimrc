@@ -359,6 +359,8 @@ if !empty(globpath(&rtp, 'autoload/ddu.vim'))
     nnoremap <silent> [ddu]r <Cmd>Ddu register<CR>
     " mru 実行
     nnoremap <silent> [ddu]m <Cmd>Ddu mr<CR>
+    " buffer 実行
+    nnoremap <silent> [ddu]b <Cmd>Ddu buffer<CR>
 endif
 
 "------------------------------------------------------------

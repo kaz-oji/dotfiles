@@ -64,6 +64,8 @@ Plug 'Shougo/ddu-filter-matcher_substring'
 Plug 'Shougo/ddu-kind-file'
 Plug 'Shougo/ddu-kind-word'
 
+Plug 'shun/ddu-source-buffer'
+
 " vimproc
 if !has('win32unix') && (has('mac') || has('unix'))
     Plug 'Shougo/vimproc.vim', {'do' : 'make'}
