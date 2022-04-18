@@ -327,16 +327,6 @@ if !empty(globpath(&rtp, 'autoload/ddu.vim'))
         \   }
         \ })
 
-    " ddu-source-register
-    call ddu#custom#patch_local('register', {
-        \ 'sources': [{'name': 'register'},],
-        \ })
-
-    " ddu-source-mr
-    call ddu#custom#patch_local('mr', {
-        \ 'sources': [{'name': 'mr'},],
-        \ })
-
     " ddu-ui-ff key mappings
     autocmd FileType ddu-ff call s:ddu_ff_my_settings()
     function! s:ddu_ff_my_settings() abort
@@ -364,11 +354,11 @@ if !empty(globpath(&rtp, 'autoload/ddu.vim'))
     nnoremap [ddu] <Nop>
     nmap <Leader>d [ddu]
     " file_rec 実行
-    nnoremap <silent> [ddu]f <Cmd>call ddu#start({'name': 'file_rec'})<CR>
+    nnoremap <silent> [ddu]f <Cmd>Ddu file_rec<CR>
     " register 実行
-    nnoremap <silent> [ddu]r <Cmd>call ddu#start({'name': 'register'})<CR>
+    nnoremap <silent> [ddu]r <Cmd>Ddu register<CR>
     " mru 実行
-    nnoremap <silent> [ddu]m <Cmd>call ddu#start({'name': 'mr'})<CR>
+    nnoremap <silent> [ddu]m <Cmd>Ddu mr<CR>
 endif
 
 "------------------------------------------------------------
