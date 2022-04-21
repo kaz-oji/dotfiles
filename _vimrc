@@ -280,8 +280,38 @@ if !empty(globpath(&rtp, 'autoload/ddu.vim'))
         \     'word': {
         \       'defaultAction': 'append',
         \     },
-        \   }
+        \   },
         \ })
+
+    " grep 用設定
+    call ddu#custom#patch_local('grep', {
+        \   'sourceParams' : {
+        \     'rg' : {
+        \       'args': ['--column', '--no-heading', '--color', 'never'],
+        \     },
+        \   },
+        \   'uiParams': {
+        \     'ff': {
+        \       'startFilter': v:false,
+        \     }
+        \   },
+        \ })
+
+    " Live grep
+    command! DduRgLive call <SID>ddu_rg_live()
+    function! s:ddu_rg_live() abort
+      call ddu#start({
+            \   'volatile': v:true,
+            \   'sources': [{
+            \     'name': 'rg',
+            \     'options': {'matchers': []},
+            \   }],
+            \   'uiParams': {'ff': {
+            \     'ignoreEmpty': v:false,
+            \     'autoResize': v:false,
+            \   }},
+            \ })
+    endfunction
 
     " ddu-ui-ff key mappings
     autocmd FileType ddu-ff call s:ddu_ff_my_settings()
@@ -341,6 +371,17 @@ if !empty(globpath(&rtp, 'autoload/ddu.vim'))
     nnoremap <silent> [ddu]m <Cmd>Ddu mr<CR>
     " buffer 実行
     nnoremap <silent> [ddu]b <Cmd>Ddu buffer<CR>
+    " grep 実行
+    nnoremap <silent> [ddu]g <Cmd>DduRg<CR>
+    " Live grep 実行
+    nnoremap <silent> [ddu]gl <Cmd>DduRgLive<CR>
+    " カーソル行の単語で grep 実行
+    nnoremap <silent> [ddu]gw <Cmd>call ddu#start({
+        \   'name': 'grep', 
+        \   'sources':[
+        \       {'name': 'rg', 'params': {'input': expand('<cword>')}}
+        \   ]
+        \ })<CR>
 endif
 
 if executable('gtags')

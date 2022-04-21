@@ -164,6 +164,7 @@ It works with the following plugins.
 * 'Shougo/ddu-kind-word'
 * 'shun/ddu-source-buffer'
 * 'kuuote/ddu-source-mr'
+* 'shun/ddu-source-rg'
 
 ### vim-lsp
 

@@ -59,6 +59,8 @@ Plug 'Shougo/ddu-kind-word'
 
 Plug 'shun/ddu-source-buffer'
 
+Plug 'shun/ddu-source-rg'
+
 " vimproc
 if !has('win32unix') && (has('mac') || has('unix'))
     Plug 'Shougo/vimproc.vim', {'do' : 'make'}
