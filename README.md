@@ -32,7 +32,6 @@ dotfiles/
   |    +--backups/          for backup files
   |    +--swp/              for swap files
   |    +--undo/             for undo files
-  |    +--dein_rc.vim       for dein.vim
   |    `--plug_rc.vim       for vim-plug
   +--_vimrc
   +--_gvimrc
@@ -41,7 +40,7 @@ dotfiles/
 
 ### Notes
 
-- **dein.vim** is not used now.
+Nothing...
 
 ## Install
 

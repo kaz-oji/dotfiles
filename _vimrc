@@ -120,7 +120,6 @@ set virtualedit=block
 " Read plugin manager setting.
 "------------------------------------------------------------
 
-"execute 'source' $DOTVIM.'/dein_rc.vim'
 execute 'source' $DOTVIM.'/plug_rc.vim'
 
 "------------------------------------------------------------
