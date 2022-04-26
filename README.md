@@ -41,7 +41,6 @@ dotfiles/
 
 ### Notes
 
-- **.emacs.d** is no longer under maintenance.
 - **dein.vim** is not used now.
 
 ## Install
