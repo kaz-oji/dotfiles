@@ -421,30 +421,6 @@ nmap <Leader>t [tlist]
 nnoremap <silent> [tlist]o :<C-u>TlistOpen<CR>
 nnoremap <silent> [tlist]c :<C-u>TlistClose<CR>
 
-
-"------------------------------------------------------------
-" howm setting
-"------------------------------------------------------------
-let howm_dir='~/howm'
-let howm_filename='%Y/%m/%Y-%m-%d-%H%M%S.txt'
-
-if has('win32')
-	let howm_fileencoding='cp932'
-	let howm_fileformat='dos'
-else
-	let howm_fileencoding='utf-8'
-	let howm_fileformat='unix'
-endif
-
-let QFixHowm_ST=-9
-let mygrepprg='agrep.vim'
-
-let QFixHowm_Menufile='0000-00-00-000000.txt'
-let QFixMRU_RegisterFile = '\.\(howm\|txt\|mkd\|wiki\)$'
-let QFixHowm_MenuPreviewEnable=0
-
-let qfixmemo_random_columns = 0
-
 "------------------------------------------------------------
 " ステータスラインの表示を固定
 "------------------------------------------------------------
