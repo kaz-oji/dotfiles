@@ -163,6 +163,7 @@ It works with the following plugins.
 * 'shun/ddu-source-buffer'
 * 'kuuote/ddu-source-mr'
 * 'shun/ddu-source-rg'
+* 'kaz-oji/ddu-source-gtags'
 
 ### vim-lsp
 

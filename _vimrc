@@ -273,23 +273,32 @@ if !empty(globpath(&rtp, 'autoload/ddu.vim'))
     nmap <Leader>d [ddu]
     " file_rec 実行
     nnoremap <silent> [ddu]f <Cmd>Ddu file_rec<CR>
+
     " register 実行
     nnoremap <silent> [ddu]r <Cmd>Ddu register<CR>
+
     " mru 実行
     nnoremap <silent> [ddu]m <Cmd>Ddu mr<CR>
+
     " buffer 実行
     nnoremap <silent> [ddu]b <Cmd>Ddu buffer<CR>
+
     " grep 実行
     nnoremap <silent> [ddu]g <Cmd>DduRg<CR>
+
     " Live grep 実行
     nnoremap <silent> [ddu]gl <Cmd>DduRgLive<CR>
-    " カーソル行の単語で grep 実行
-    nnoremap <silent> [ddu]gw <Cmd>call ddu#start({
-        \   'name': 'grep', 
-        \   'sources':[
-        \       {'name': 'rg', 'params': {'input': expand('<cword>')}}
-        \   ]
-        \ })<CR>
+
+    " カーソル位置の word で grep 実行
+    nnoremap <silent> [ddu]gw <Cmd>Ddu rg -source-param-input=`expand('<cword>')`<CR>
+
+    " global 実行
+    "   カーソル位置の word の定義へジャンプ
+    nnoremap <silent> [ddu]td <Cmd>Ddu gtags -source-param-args=-d -source-param-input=`expand('<cword>')`<CR>
+    "   カーソル位置の word の参照箇所を表示
+    nnoremap <silent> [ddu]tr <Cmd>Ddu gtags -source-param-args=-r -source-param-input=`expand('<cword>')`<CR>
+    "   tag ファイルを更新
+    nnoremap <silent> [ddu]tu <Cmd>Ddu gtags -source-param-args=-u<CR>
 endif
 
 if executable('gtags')
