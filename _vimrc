@@ -291,28 +291,33 @@ if !empty(globpath(&rtp, 'autoload/ddu.vim'))
 
     " カーソル位置の word で grep 実行
     nnoremap <silent> [ddu]gw <Cmd>Ddu rg -source-param-input=`expand('<cword>')`<CR>
-
-    " global 実行
-    "   カーソル位置の word の定義へジャンプ
-    nnoremap <silent> [ddu]td <Cmd>Ddu gtags -source-param-args=-d -source-param-input=`expand('<cword>')`<CR>
-    "   カーソル位置の word の参照箇所を表示
-    nnoremap <silent> [ddu]tr <Cmd>Ddu gtags -source-param-args=-r -source-param-input=`expand('<cword>')`<CR>
-    "   tag ファイルを更新
-    nnoremap <silent> [ddu]tu <Cmd>Ddu gtags -source-param-args=-u<CR>
 endif
 
 if executable('gtags')
     nnoremap [gtags] <Nop>
     nmap <Leader>g [gtags]
-    "nnoremap <silent> [gtags]b :<C-u>!gtags -v<CR>
-    "nnoremap <silent> [gtags]u :<C-u>!gtags -vi<CR>
-    nnoremap <silent> [gtags]b :<C-u>!gtags -v --gtagslabel=pygments<CR>
-    nnoremap <silent> [gtags]u :<C-u>!gtags -vi --gtagslabel=pygments<CR>
+    nnoremap <silent> [gtags]b :<C-u>!gtags -v<CR>
+    nnoremap <silent> [gtags]u :<C-u>!gtags -vi<CR>
 
-    "" for unite-gtags
-    nnoremap <silent> [gtags]d :<C-u>Unite gtags/def<CR>
-    nnoremap <silent> [gtags]r :<C-u>Unite gtags/ref<CR>
-    nnoremap <silent> [gtags]g :<C-u>Unite gtags/grep<CR>
+    if !empty(globpath(&rtp, 'autoload/ddu.vim'))
+        " カーソル位置の word の定義へジャンプ
+        nnoremap <silent> [gtags]d 
+            \ <Cmd>Ddu gtags -source-param-args=-d -source-param-input=`expand('<cword>')`<CR>
+
+        " カーソル位置の word の参照箇所を表示
+        nnoremap <silent> [gtags]r 
+            \ <Cmd>Ddu gtags -source-param-args=-r -source-param-input=`expand('<cword>')`<CR>
+
+        " カーソル位置の word で grep を実行する
+        nnoremap <silent> [gtags]g 
+            \ <Cmd>Ddu gtags -source-param-args=-g -source-param-input=`expand('<cword>')`<CR>
+    elseif !empty(globpath(&rtp, 'autoload/unite-gtags.vim'))
+
+        "" for unite-gtags
+        nnoremap <silent> [gtags]d :<C-u>Unite gtags/def<CR>
+        nnoremap <silent> [gtags]r :<C-u>Unite gtags/ref<CR>
+        nnoremap <silent> [gtags]g :<C-u>Unite gtags/grep<CR>
+    endif
 endif
 
 if !empty(globpath(&rtp, 'autoload/fern.vim'))
