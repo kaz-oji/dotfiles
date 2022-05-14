@@ -221,6 +221,19 @@ if !empty(globpath(&rtp, 'autoload/ddu.vim'))
             \ })
     endfunction
 
+    " path を指定して grep を実行するコマンド定義
+    command! DduRgPath call <SID>ddu_rg_path()
+    function! s:ddu_rg_path() abort
+        let path = input("path: ", ".", "dir")
+        let word = input("search word: ")
+        call ddu#start({
+            \   'sources': [{
+            \       'name': 'rg', 
+            \       'params': {'path': path, 'input': word}
+            \   }]
+            \ })
+    endfunction
+
     " ddu-ui-ff key mappings
     autocmd FileType ddu-ff call s:ddu_ff_my_settings()
     function! s:ddu_ff_my_settings() abort
@@ -244,6 +257,7 @@ if !empty(globpath(&rtp, 'autoload/ddu.vim'))
         nnoremap <buffer><silent> q
             \ <Cmd>close<CR>
     endfunction
+
 endif
 
 "------------------------------------------------------------
@@ -291,6 +305,9 @@ if !empty(globpath(&rtp, 'autoload/ddu.vim'))
 
     " カーソル位置の word で grep 実行
     nnoremap <silent> [ddu]gw <Cmd>Ddu rg -source-param-input=`expand('<cword>')`<CR>
+
+    " path を指定して grep 実行
+    nnoremap <silent> [ddu]gp <Cmd>DduRgPath<CR>
 endif
 
 if executable('gtags')
