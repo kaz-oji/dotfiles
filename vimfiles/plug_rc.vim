@@ -77,6 +77,10 @@ Plug 'rhysd/vim-llvm'
 Plug 'cespare/vim-toml'
 Plug 'rust-lang/rust.vim'
 
+" Markdown
+Plug 'tyru/open-browser.vim'
+Plug 'previm/previm'
+
 " vim-lsp
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
