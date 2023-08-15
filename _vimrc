@@ -411,6 +411,7 @@ let g:asyncomplete_auto_popup = 1
 let g:asyncomplete_auto_comleteopt = 1
 let g:asyncomplete_popup_delay = 200
 let g:lsp_signature_help_enabled = 0
+let g:lsp_diagnostics_virtual_text_enabled = 0
 
 "------------------------------------------------------------
 " set colorscheme
