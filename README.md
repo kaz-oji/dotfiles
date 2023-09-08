@@ -3,11 +3,11 @@
 This is my dotfiles for **Vim**.
 
 ### Target Vim version:
-- Vim 8.2 or later
+- Vim 9.0.1276 or later
 
 ### Target platforms:
 - Windows 10
-  - Vim+kaoriya
+  - Vim
 - Linux(Ubuntu)
   - Vim
 
@@ -15,9 +15,10 @@ This is my dotfiles for **Vim**.
 
 - git
 - curl
+- GNU global
+- ctags (universal-ctags)
+- ripgrep
 - make
-- python3
-- pip3
 - [Deno](https://deno.land/)
     - for ddu.vim
 - [denops.vim](https://github.com/vim-denops/denops.vim)
@@ -28,7 +29,6 @@ This is my dotfiles for **Vim**.
 ```
 dotfiles/
   +--vimfiles/
-  |    +--dein/             for plugins(managed using dein.vim)
   |    +--backups/          for backup files
   |    +--swp/              for swap files
   |    +--undo/             for undo files
@@ -58,19 +58,13 @@ Nothing...
   $ ./mklink.sh
   ```
 
-3. Install python packages
-  ```
-  $ pip3 install --user msgpack
-  $ pip3 install --user pynvim
-  ```
+3. Launch **Vim**
 
-4. Launch **Vim**
-
-5. Download **plug.vim** automatically
+4. Download **plug.vim** automatically
   
     If **plug.vim** is not installed, download will be performed automatically.
 
-6. Install plugins automatically
+5. Install plugins automatically
   
     If some plugins are not installed, installation will be performed automatically.
 
@@ -105,39 +99,15 @@ Nothing...
     >mklink _gvimrc projects\dotfiles\_gvimrc
      ```
 
+3. Launch **Vim**
 
-3. Install Python3 and plugins  
-  
-    Need to install Python3 and some plugins for using `denite.nvim`.
-
-  1. Download Python embeddable and copy all files to folder where Vim installed.
-  2. Install `pip`
-    1. Uncomment `#import site` in `python3x._pth`
-    2. Execute `get-pip.py` in Vim installed folder.
-       ```
-       >.\python.exe .\get-pip.py
-       ```
-  3. Install msgpack and pynvim
-     ```
-     >.\python.exe -m pip install msgpack
-     >.\python.exe -m pip install pynvim
-     ```
-
-4. Launch **Vim**
-
-5. Download **plug.vim** automatically  
+4. Download **plug.vim** automatically  
   
     If **plug.vim** is not installed, download will be performed automatically.
 
-6. Install plugins automatically  
+5. Install plugins automatically  
   
     If some plugins are not installed, installation will be performed automatically.
-  
-    If some error caused by Python on Windows, check the following value are correct.
-
-    ```
-    :echo g:python3_host_prog
-    ```
 
 ## Installed plugins
 
