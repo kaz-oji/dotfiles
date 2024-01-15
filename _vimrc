@@ -321,15 +321,15 @@ if executable('gtags')
     if !empty(globpath(&rtp, 'autoload/ddu.vim'))
         " カーソル位置の word の定義へジャンプ
         nnoremap <silent> [gtags]d 
-            \ <Cmd>Ddu gtags -source-param-args=-d -source-param-input=`expand('<cword>')`<CR>
+            \ <Cmd>Ddu gtags -source-param-gtags-args=-d -source-param-gtags-input=`expand('<cword>')`<CR>
 
         " カーソル位置の word の参照箇所を表示
         nnoremap <silent> [gtags]r 
-            \ <Cmd>Ddu gtags -source-param-args=-r -source-param-input=`expand('<cword>')`<CR>
+            \ <Cmd>Ddu gtags -source-param-gtags-args=-r -source-param-gtags-input=`expand('<cword>')`<CR>
 
         " カーソル位置の word で grep を実行する
         nnoremap <silent> [gtags]g 
-            \ <Cmd>Ddu gtags -source-param-args=-g -source-param-input=`expand('<cword>')`<CR>
+            \ <Cmd>Ddu gtags -source-param-gtags-args=-g -source-param-gtags-input=`expand('<cword>')`<CR>
     elseif !empty(globpath(&rtp, 'autoload/unite-gtags.vim'))
 
         "" for unite-gtags
