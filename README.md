@@ -68,7 +68,7 @@ Nothing...
   
     If some plugins are not installed, installation will be performed automatically.
 
-### Windows 10
+### Windows 11
 
 0. Set the home directory path to **HOME** environment variable
 
@@ -94,9 +94,9 @@ Nothing...
   3. create symlink
 
     ```
-    >mklink /D vimfiles projects\dotfiles\vimfiles
-    >mklink _vimrc projects\dotfiles\_vimrc
-    >mklink _gvimrc projects\dotfiles\_gvimrc
+    >mklink /D vimfiles dotfiles\vimfiles
+    >mklink _vimrc dotfiles\_vimrc
+    >mklink _gvimrc dotfiles\_gvimrc
      ```
 
 3. Launch **Vim**
